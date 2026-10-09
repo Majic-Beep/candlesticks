@@ -1,0 +1,188 @@
+//@version=6
+// Candlestick patterns at key levels - same rules as candle_patterns/strategy.py (Python backtest + Alpaca paper bot).
+// Video: "The BEST Candlestick Pattern Guide You'll EVER FIND" - six patterns, traded only at key levels,
+// stop beyond the pattern, take profit at 2 x the risk.
+// "Variant" selects one of the two frozen paper-test variants (results/live_variants.json):
+//   V1 = video rules: all six patterns, level tolerance 0.10 ATR, no trend filter, target 2 R
+//   V2 = all six patterns, level tolerance 0.25 ATR, 50-candle trend filter, target 1.5 R (walk-forward choice)
+//   Custom = use the inputs below.
+// Capital 25,000 per variant, as in the paper account.
+// Use on a 1-hour chart of a US stock/ETF, regular trading hours only (candles 09:30, 10:30, ... 15:30).
+// Differences to the Python engine: early-close days are traded here, and a gap beyond stop/target at the entry
+// open is not skipped. The Python backtest and the paper account are the reference.
+strategy("Candle Patterns at Key Levels", overlay = true, initial_capital = 25000, commission_type = strategy.commission.percent,
+     commission_value = 0.0, slippage = 2, process_orders_on_close = false, calc_on_every_tick = false)
+
+variant   = input.string("V1", "Variant", options = ["V1", "V2", "Custom"])
+trendIn   = input.bool(false, "Trend filter (Custom)", tooltip = "Long only above the 50-candle average of closes, short only below.")
+tolIn     = input.float(0.10, "Level tolerance x ATR (Custom)", step = 0.05)
+rrIn      = input.float(2.0, "Target in R (Custom)", step = 0.25)
+useLevel  = input.bool(true, "Require a key level")
+usePat1   = input.bool(true, "Engulfing")
+usePat2   = input.bool(true, "Pin bar")
+usePat3   = input.bool(true, "Three-bar reversal")
+usePat4   = input.bool(true, "Three-bar continuation")
+usePat5   = input.bool(true, "Breakout candles")
+usePat6   = input.bool(true, "Shrinking candles")
+pivK      = input.int(3, "Swing strength (candles each side)")
+lookback  = input.int(140, "Level lookback (candles)")
+atrLen    = input.int(14, "ATR length")
+avgLen    = input.int(20, "Average body length")
+largeK    = input.float(1.2, "Large body (x average)")
+smallK    = input.float(0.6, "Small body (x average)")
+pinWick   = input.float(0.66, "Pin bar wick share")
+minShrink = input.int(3, "Shrinking candles (min)")
+minCons   = input.int(3, "Consolidation candles (min)")
+trendLen  = input.int(50, "Trend average length")
+bufAtr    = input.float(0.05, "Stop buffer x ATR")
+minRiskAtr = input.float(0.25, "Min risk x ATR")
+maxHold   = input.int(35, "Max hold (candles)")
+riskPct   = input.float(0.5, "Risk per trade (% equity)") / 100
+maxPosPct = input.float(25, "Max position (% equity)") / 100
+
+// effective rules of the selected variant
+useTrend = variant == "V1" ? false : variant == "V2" ? true : trendIn
+tolAtr   = variant == "V1" ? 0.10 : variant == "V2" ? 0.25 : tolIn
+rr       = variant == "V1" ? 2.0 : variant == "V2" ? 1.5 : rrIn
+
+// ---- measures (same definitions as Python: simple averages)
+atr    = ta.sma(ta.tr(true), atrLen)
+bodyF(i) => math.abs(close[i] - open[i])
+avgB   = ta.sma(math.abs(close - open), avgLen)[1]
+sma    = ta.sma(close, trendLen)
+hiOf(int a, int b) =>
+    float v = high[a]
+    for i = a to b
+        v := math.max(v, high[i])
+    v
+loOf(int a, int b) =>
+    float v = low[a]
+    for i = a to b
+        v := math.min(v, low[i])
+    v
+isG(i) => close[i] > open[i]
+isR(i) => close[i] < open[i]
+big(i) => bodyF(i) >= largeK * avgB
+small(i) => bodyF(i) <= smallK * avgB
+
+// ---- key levels: confirmed swing points (prices and the candle index they belong to)
+var prices = array.new_float()
+var idxs = array.new_int()
+ph = ta.pivothigh(high, pivK, pivK)
+pl = ta.pivotlow(low, pivK, pivK)
+if not na(ph)
+    array.push(prices, ph)
+    array.push(idxs, bar_index - pivK)
+if not na(pl)
+    array.push(prices, pl)
+    array.push(idxs, bar_index - pivK)
+while array.size(idxs) > 0 and array.get(idxs, 0) < bar_index - 1000
+    array.shift(idxs)
+    array.shift(prices)
+
+// closest level between the pattern's extreme (with tolerance) and the close; patterns start at bar_index - k + 1
+levelFor(int side, float ext, float tol, int k) =>
+    float best = na
+    int n = array.size(prices)
+    if n > 0
+        for j = 0 to n - 1
+            int ix = array.get(idxs, j)
+            float pr = array.get(prices, j)
+            if ix >= bar_index + 1 - lookback and ix < bar_index - k + 1
+                bool ok = side > 0 ? (pr >= ext - tol and pr <= close) : (pr <= ext + tol and pr >= close)
+                if ok and (na(best) or math.abs(pr - ext) < math.abs(best - ext))
+                    best := pr
+    best
+
+// ---- the six patterns; returns [found, number of candles] for the first match in the fixed order
+bull() =>
+    int k = 0
+    if isG(0) and avgB > 0
+        rng = high - low
+        if usePat1 and isR(1) and close >= open[1] and open <= close[1] and bodyF(0) > bodyF(1)
+            k := 2
+        else if usePat2 and rng > 0 and (math.min(open, close) - low) >= pinWick * rng
+            k := 1
+        else if usePat3 and isR(2) and big(2) and isR(1) and bodyF(1) < bodyF(2) and big(0) and close > open[2]
+            k := 3
+        else if usePat4 and isG(2) and big(2) and small(1) and low[1] > low[2] and big(0) and close > math.max(high[2], high[1])
+            k := 3
+        else if big(0)
+            int n = 0
+            while n < 20 and small(n + 1)
+                n += 1
+            if usePat5 and n >= minCons and close > hiOf(1, math.max(n, 1))
+                k := n + 1
+            else if usePat6
+                int m = 0
+                while isR(m + 1) and (m == 0 or bodyF(m + 1) > bodyF(m))
+                    m += 1
+                if m >= minShrink
+                    k := m + 1
+    k
+
+bear() =>
+    int k = 0
+    if isR(0) and avgB > 0
+        rng = high - low
+        if usePat1 and isG(1) and close <= open[1] and open >= close[1] and bodyF(0) > bodyF(1)
+            k := 2
+        else if usePat2 and rng > 0 and (high - math.max(open, close)) >= pinWick * rng
+            k := 1
+        else if usePat3 and isG(2) and big(2) and isG(1) and bodyF(1) < bodyF(2) and big(0) and close < open[2]
+            k := 3
+        else if usePat4 and isR(2) and big(2) and small(1) and high[1] < high[2] and big(0) and close < math.min(low[2], low[1])
+            k := 3
+        else if big(0)
+            int n = 0
+            while n < 20 and small(n + 1)
+                n += 1
+            if usePat5 and n >= minCons and close < loOf(1, math.max(n, 1))
+                k := n + 1
+            else if usePat6
+                int m = 0
+                while isG(m + 1) and (m == 0 or bodyF(m + 1) > bodyF(m))
+                    m += 1
+                if m >= minShrink
+                    k := m + 1
+    k
+
+kL = bull()
+kS = bear()
+tol = tolAtr * atr
+
+check(int side, int k) =>
+    bool ok = false
+    float stop = na
+    float tgt = na
+    if k > 0 and not na(atr) and not na(sma) and bar_index > 60
+        float ext = side > 0 ? loOf(0, k - 1) : hiOf(0, k - 1)
+        float lvl = levelFor(side, ext, tol, k)
+        bool lvlOk = not useLevel or not na(lvl)
+        bool trendOk = not useTrend or (close - sma) * side > 0
+        stop := math.round((ext - side * bufAtr * atr) * 100) / 100
+        float risk = (close - stop) * side
+        ok := lvlOk and trendOk and risk >= minRiskAtr * atr
+        tgt := math.round((close + side * rr * risk) * 100) / 100
+    [ok, stop, tgt]
+
+[okL, stopL, tgtL] = check(1, kL)
+[okS, stopS, tgtS] = check(-1, kS)
+flat = strategy.position_size == 0 and strategy.opentrades == 0
+
+if flat and okL != okS
+    side = okL ? 1 : -1
+    stop = okL ? stopL : stopS
+    tgt = okL ? tgtL : tgtS
+    risk = math.abs(close - stop)
+    qty = math.floor(math.min(strategy.equity * riskPct / risk, strategy.equity * maxPosPct / close))
+    if qty >= 1
+        strategy.entry(side > 0 ? "L" : "S", side > 0 ? strategy.long : strategy.short, qty = qty)
+        strategy.exit(side > 0 ? "xL" : "xS", side > 0 ? "L" : "S", stop = stop, limit = tgt)
+
+// time exit: after maxHold candles, close at the next open
+if strategy.opentrades > 0 and bar_index - strategy.opentrades.entry_bar_index(0) + 1 >= maxHold
+    strategy.close_all(comment = "time")
+
+plotshape(okL and not okS, "Long signal", shape.triangleup, location.belowbar, color.new(color.teal, 0), size = size.tiny)
+plotshape(okS and not okL, "Short signal", shape.triangledown, location.abovebar, color.new(color.red, 0), size = size.tiny)

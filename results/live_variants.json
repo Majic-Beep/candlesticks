@@ -1,0 +1,81 @@
+{
+  "frozen_on": "2026-10-09",
+  "variants": {
+    "v1": {
+      "label": "Variante 1 – Video-Regeln",
+      "budget_share": 0.5,
+      "note": "alle sechs Muster an Key-Levels, Toleranz 0,10 ATR, ohne Trendfilter, Ziel 2 R; vorab festgelegt, nicht optimiert",
+      "params": {
+        "pivot_strength": 3,
+        "level_lookback": 140,
+        "touch_tol_atr": 0.1,
+        "require_level": true,
+        "patterns": [
+          "engulfing",
+          "pin_bar",
+          "three_bar_reversal",
+          "three_bar_continuation",
+          "breakout",
+          "shrinking"
+        ],
+        "atr_len": 14,
+        "body_avg_len": 20,
+        "large_body": 1.2,
+        "small_body": 0.6,
+        "pin_wick": 0.66,
+        "min_shrink": 3,
+        "min_consolidation": 3,
+        "trend_filter": false,
+        "trend_len": 50,
+        "stop_buffer_atr": 0.05,
+        "min_risk_atr": 0.25,
+        "rr": 2.0,
+        "max_hold_bars": 35,
+        "tick": 0.01,
+        "slippage_bps": 2.0,
+        "commission_per_share": 0.0,
+        "risk_pct": 0.005,
+        "max_position_pct": 0.25,
+        "max_gross_pct": 1.0
+      }
+    },
+    "v2": {
+      "label": "Variante 2 – Trendfilter, Ziel 1,5 R",
+      "budget_share": 0.5,
+      "note": "alle sechs Muster, Toleranz 0,25 ATR, 50-Kerzen-Trendfilter, Ziel 1,5 R; gewählt per Walk-Forward-Regel auf 2025-05-01 – 2026-05-01",
+      "params": {
+        "pivot_strength": 3,
+        "level_lookback": 140,
+        "touch_tol_atr": 0.25,
+        "require_level": true,
+        "patterns": [
+          "engulfing",
+          "pin_bar",
+          "three_bar_reversal",
+          "three_bar_continuation",
+          "breakout",
+          "shrinking"
+        ],
+        "atr_len": 14,
+        "body_avg_len": 20,
+        "large_body": 1.2,
+        "small_body": 0.6,
+        "pin_wick": 0.66,
+        "min_shrink": 3,
+        "min_consolidation": 3,
+        "trend_filter": true,
+        "trend_len": 50,
+        "stop_buffer_atr": 0.05,
+        "min_risk_atr": 0.25,
+        "rr": 1.5,
+        "max_hold_bars": 35,
+        "tick": 0.01,
+        "slippage_bps": 2.0,
+        "commission_per_share": 0.0,
+        "risk_pct": 0.005,
+        "max_position_pct": 0.25,
+        "max_gross_pct": 1.0
+      }
+    }
+  }
+}
