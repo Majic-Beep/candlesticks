@@ -220,6 +220,32 @@ python -m candle_patterns forex-download
 python -m candle_patterns forex-backtest
 ```
 
+## Tageskerzen auf Aktien (11. Oktober 2026)
+
+Dieselbe Strategie mit einer Kerze pro Handelstag: 24 Werte (die 12 dieses Bots plus die 12 von Sneaky Pivot),
+Alpaca-Tagesdaten 01/2016 – 10/2026, ausgewertet ab 02/2017, Kosten 0,02 % pro Seite. Vorab auf Tage umgerechnet:
+Levels aus den letzten 60 Tagen, Trend = 50-Tage-Durchschnitt, Ausstieg spätestens nach 20 Tagen. Ergebnisse in
+`results/daily/`.
+
+| Test (ab 02/2017) | Trades | Ø pro Trade | t |
+|---|---|---|---|
+| Walk-Forward 02/2017 – 04/2026 | 2.273 | +0,002 R | +0,08 |
+| Hold-out 05 – 10/2026 | 91 | −0,048 R | −0,37 |
+| V1 Video-Regeln | 2.544 | +0,017 R | +0,62 |
+| V2 | 2.185 | +0,014 R | +0,52 |
+| V3 nur Long, Trend, Mindest-Stop | 1.212 | +0,154 R | +3,70 |
+| Gegenprobe: zufällige Long-Einstiege mit den Regeln von V3 (8 Läufe) | ≈ 1.000 | +0,087 … +0,167 R, Mittel +0,137 R | |
+
+**Ergebnis:** Auf Tageskerzen fressen die Kosten kaum etwas (Stop-Ausstieg −1,03 R statt −1,27 R auf 1 h), die
+Video-Regeln liegen bei null. Long verdient (+0,15 R), Short verliert (−0,13 R). V3 sieht mit +0,154 R stark aus,
+aber zufällige Long-Einstiege mit denselben Regeln schaffen im Schnitt +0,137 R: Die Muster tragen auf Tageskerzen
+praktisch nichts bei, der Gewinn ist der steigende Aktienmarkt 2017 – 2026.
+
+```
+python -m candle_patterns daily-download
+python -m candle_patterns daily-backtest
+```
+
 ## Benutzung
 
 Python ≥ 3.10, nur Standardbibliothek. Alle Befehle im Hauptordner des Repos.
@@ -272,6 +298,7 @@ candle_patterns/variants.py    Backtest der eingefrorenen Live-Varianten
 candle_patterns/data.py        Alpaca-Kursdaten, CSV-Cache, 1-Stunden-Kerzen
 candle_patterns/crypto.py      Krypto-Backtest (Alpaca-Krypto-Kerzen, Kosten, Bruchteile)
 candle_patterns/forex.py       Forex-Backtest über Währungs-ETFs
+candle_patterns/daily.py       Backtest auf Tageskerzen (Aktien)
 candle_patterns/alpaca.py      Alpaca-Paper-Client (verweigert Live-Konten)
 candle_patterns/live.py        Paper-Trading: run / sync, drei Varianten
 candle_patterns/dashboard.py   docs/index.html (Vorlage: dashboard_template.html)

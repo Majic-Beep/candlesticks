@@ -10,6 +10,8 @@
   crypto-backtest                   same strategy on crypto -> results/crypto/
   forex-download                    currency ETFs (FXE, FXB, FXY, ...) from Alpaca -> data/*.csv
   forex-backtest                    same strategy on the currency ETFs -> results/forex/
+  daily-download                    daily stock bars since 2016 -> data/daily_*.csv
+  daily-backtest                    same strategy on daily candles -> results/daily/
 """
 from __future__ import annotations
 
@@ -21,7 +23,7 @@ from .config import UNIVERSE
 
 def main() -> None:
     ap = argparse.ArgumentParser(prog="candle_patterns")
-    ap.add_argument("command", choices=["download", "backtest", "variants", "run", "sync", "dashboard", "crypto-download", "crypto-backtest", "forex-download", "forex-backtest"])
+    ap.add_argument("command", choices=["download", "backtest", "variants", "run", "sync", "dashboard", "crypto-download", "crypto-backtest", "forex-download", "forex-backtest", "daily-download", "daily-backtest"])
     ap.add_argument("--start", default="2019-01-01")
     ap.add_argument("--symbols", default=",".join(UNIVERSE))
     ap.add_argument("--dry-run", action="store_true")
@@ -66,11 +68,16 @@ def main() -> None:
     elif a.command == "forex-download":
         from .forex import download
         download()
-    elif a.command in ("crypto-backtest", "forex-backtest"):
+    elif a.command == "daily-download":
+        from .daily import download
+        download()
+    elif a.command in ("crypto-backtest", "forex-backtest", "daily-backtest"):
         if a.command == "crypto-backtest":
             from .crypto import run_backtest
-        else:
+        elif a.command == "forex-backtest":
             from .forex import run_backtest
+        else:
+            from .daily import run_backtest
         r = run_backtest()
         for k in ("walk_forward", "holdout", "standard", "in_sample"):
             s = r["walk_forward"][k]["summary"]

@@ -69,13 +69,15 @@ def _fmt(t: int) -> str:
 
 class Backtest:
     def __init__(self, bars: dict[str, list[Bar]], params: Params | Callable[[int], Params],
-                 equity: float = 100_000.0, trade_from: Optional[date] = None, trade_until: Optional[date] = None):
+                 equity: float = 100_000.0, trade_from: Optional[date] = None, trade_until: Optional[date] = None,
+                 min_bars_per_day: int = BARS_PER_DAY):
         self.bars = bars
         self.params = params if callable(params) else (lambda _t, p=params: p)
         self.start_equity = equity
         self.cash = equity
         self.trade_from = trade_from
         self.trade_until = trade_until
+        self.min_bars_per_day = min_bars_per_day  # 1 for daily candles
         self.trades: list[Trade] = []
         self.signals: list[dict] = []
         self.skipped: Counter = Counter()
@@ -86,7 +88,7 @@ class Backtest:
 
     def run(self) -> "Backtest":
         # calendar: new entries only on days with a full regular session (early closes are skipped)
-        full_days = {s: {d for d, n in Counter(b.day for b in bl).items() if n >= BARS_PER_DAY}
+        full_days = {s: {d for d, n in Counter(b.day for b in bl).items() if n >= self.min_bars_per_day}
                      for s, bl in self.bars.items()}
         strategies = {s: CandlePatterns(s, self.params) for s in self.bars}
         timeline: dict[int, list[Bar]] = defaultdict(list)

@@ -17,12 +17,13 @@
 """
 from __future__ import annotations
 
+import functools
 import itertools
 import json
 import os
 from datetime import date, datetime, timezone
 
-from .config import ET, PARAM_GRID, RESULTS_DIR, Params
+from .config import BARS_PER_DAY, ET, PARAM_GRID, RESULTS_DIR, Params
 from .data import Bar
 from .engine import Backtest
 from .metrics import full_report
@@ -56,7 +57,8 @@ def _bars_before(bars: dict[str, list[Bar]], cut: date) -> dict[str, list[Bar]]:
 
 def run(bars: dict[str, list[Bar]], base: Params = Params(), grid: dict = PARAM_GRID, train_months: int = 12,
         test_months: int = 3, holdout_months: int = 6, min_train_trades: int = 30, equity: float = 100_000.0,
-        out_path: str = os.path.join(RESULTS_DIR, "backtest.json")) -> dict:
+        out_path: str = os.path.join(RESULTS_DIR, "backtest.json"), min_bars_per_day: int = BARS_PER_DAY) -> dict:
+    _bt = functools.partial(Backtest, min_bars_per_day=min_bars_per_day)
     days = sorted({b.day for bl in bars.values() for b in bl})
     if not days:
         raise SystemExit("no bars loaded - run `python -m candle_patterns download` first")
@@ -70,7 +72,7 @@ def run(bars: dict[str, list[Bar]], base: Params = Params(), grid: dict = PARAM_
 
     # 1) every grid point once over the development period (R-multiples do not depend on sizing)
     combos = grid_params(base, grid)
-    runs = [Backtest(dev, p, equity).run() for p in combos]
+    runs = [_bt(dev, p, equity).run() for p in combos]
 
     # 2) choose per window from the preceding train window only
     windows, schedule = [], []
@@ -99,7 +101,7 @@ def run(bars: dict[str, list[Bar]], base: Params = Params(), grid: dict = PARAM_
                 return p
         return schedule[-1][2] if d >= schedule[-1][1] else schedule[0][2]
 
-    wf = Backtest(dev, params_for_day, equity, trade_from=wf_start).run()
+    wf = _bt(dev, params_for_day, equity, trade_from=wf_start).run()
 
     # 3) final parameters: chosen on the last train window before the hold-out, then sealed
     final, final_score = None, None
@@ -108,13 +110,13 @@ def run(bars: dict[str, list[Bar]], base: Params = Params(), grid: dict = PARAM_
         if m is not None and n >= min_train_trades and (final_score is None or m > final_score):
             final, final_score = p, m
     final = final or base
-    hold = Backtest(bars, final, equity, trade_from=holdout_start).run()
+    hold = _bt(bars, final, equity, trade_from=holdout_start).run()
 
     # 4) references
-    std = Backtest(bars, base, equity, trade_from=wf_start).run()
+    std = _bt(bars, base, equity, trade_from=wf_start).run()
     is_scores = [(_mean_r(r.trades, wf_start, holdout_start)[0] or -9, p, r) for p, r in zip(combos, runs)]
     _, is_p, _ = max(is_scores, key=lambda x: x[0])
-    ins = Backtest(dev, is_p, equity, trade_from=wf_start).run()
+    ins = _bt(dev, is_p, equity, trade_from=wf_start).run()
 
     def rep(bt: Backtest) -> dict:
         r = full_report([t.to_dict() for t in bt.trades], bt.equity_curve, equity)
