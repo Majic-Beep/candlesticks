@@ -274,6 +274,35 @@ python -m candle_patterns futures-download
 python -m candle_patterns futures-backtest
 ```
 
+## 5-Minuten-Kerzen auf Aktien (11. Oktober 2026)
+
+Dieselbe Strategie auf 5-Minuten-Kerzen der 12 Werte dieses Bots, nur innerhalb des Tages: kein neuer Trade nach
+der 15:45-Kerze, alles flat zur Eröffnung der 15:55-Kerze. Die Kerzen-Anzahlen bleiben wie auf 1 h (Levels aus
+140 Kerzen ≈ 2 Tage, Trend = 50 Kerzen ≈ 4 Stunden, höchstens 35 Kerzen ≈ 3 Stunden im Trade). Alpaca-Daten
+01/2021 – 10/2026 (1,35 Mio. Kerzen), ausgewertet ab 02/2022, Kosten 0,02 % pro Seite. Ergebnisse in `results/m5/`.
+
+| Test (ab 02/2022) | Trades | Ø pro Trade | t |
+|---|---|---|---|
+| Walk-Forward 02/2022 – 04/2026 | 39.967 | −0,226 R | −35,8 |
+| Hold-out 05 – 10/2026 | 4.248 | −0,266 R | −14,4 |
+| V1 Video-Regeln | 47.585 | −0,231 R | −37,1 |
+| V2 | 44.958 | −0,229 R | −39,8 |
+| V3 nur Long, Trend, Mindest-Stop | 24.397 | −0,217 R | −25,3 |
+| V1 ohne Kosten | 48.735 | +0,003 R | +0,5 |
+| V3 ohne Kosten | 24.438 | +0,004 R | +0,5 |
+| V1 mit Mindest-Stop 2 ATR | 12.399 | −0,097 R | −10,1 |
+| Gegenprobe: Zufall Long, Regeln wie V3 (3 Läufe) | ≈ 3.500 | −0,24 … −0,32 R | |
+
+**Ergebnis:** Auf 5-Minuten-Kerzen haben die Muster keinen Vorteil (ohne Kosten genau null), und die Kosten
+machen jede Variante zum sicheren Verlust: Der Stop liegt im Schnitt nur 0,3 % entfernt, 0,04 % Kosten pro Runde
+sind damit über ein Zehntel des Risikos, dazu Slippage am Stop (Stop-Ausstieg im Schnitt −1,27 R). Das passt zum
+Video, das ausdrücklich 1 Stunde oder mehr empfiehlt.
+
+```
+python -m candle_patterns m5-download
+python -m candle_patterns m5-backtest
+```
+
 ## Benutzung
 
 Python ≥ 3.10, nur Standardbibliothek. Alle Befehle im Hauptordner des Repos.
@@ -327,6 +356,7 @@ candle_patterns/data.py        Alpaca-Kursdaten, CSV-Cache, 1-Stunden-Kerzen
 candle_patterns/crypto.py      Krypto-Backtest (Alpaca-Krypto-Kerzen, Kosten, Bruchteile)
 candle_patterns/forex.py       Forex-Backtest über Währungs-ETFs
 candle_patterns/daily.py       Backtest auf Tageskerzen (Aktien und Futures-ETFs)
+candle_patterns/intraday.py    Backtest auf 5-Minuten-Kerzen (Aktien, flat zum Handelsschluss)
 candle_patterns/alpaca.py      Alpaca-Paper-Client (verweigert Live-Konten)
 candle_patterns/live.py        Paper-Trading: run / sync, drei Varianten
 candle_patterns/dashboard.py   docs/index.html (Vorlage: dashboard_template.html)
