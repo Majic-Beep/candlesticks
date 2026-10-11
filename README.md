@@ -303,6 +303,31 @@ python -m candle_patterns m5-download
 python -m candle_patterns m5-backtest
 ```
 
+## 4-Stunden-Kerzen auf Aktien (11. Oktober 2026)
+
+Zwei Kerzen pro Handelstag wie bei TradingView (09:30 – 13:30 und 13:30 – 16:00), 24 Werte (die 12 dieses Bots plus
+die 12 von Sneaky Pivot), Alpaca-30-Minuten-Daten 01/2019 – 10/2026, ausgewertet ab 02/2020, Kosten 0,02 % pro
+Seite. Vorab festgelegt: Levels aus 40 Kerzen (20 Tage), Ausstieg spätestens nach 10 Kerzen (5 Tage),
+Trend = 50 Kerzen. Ergebnisse in `results/h4/`.
+
+| Test (ab 02/2020) | Trades | Ø pro Trade | t |
+|---|---|---|---|
+| Walk-Forward 02/2020 – 04/2026 | 3.154 | +0,009 R | +0,42 |
+| Hold-out 05 – 10/2026 | 213 | −0,020 R | −0,24 |
+| V1 Video-Regeln | 3.833 | +0,012 R | +0,56 |
+| V2 | 3.322 | +0,017 R | +0,82 |
+| V3 nur Long, Trend, Mindest-Stop | 1.882 | +0,079 R | +2,64 |
+| Gegenprobe: Zufall Long, Regeln wie V3 (8 Läufe) | ≈ 1.100 | +0,034 … +0,112 R, Mittel +0,071 R | |
+
+**Ergebnis:** Wie auf Tageskerzen: Kosten fallen kaum ins Gewicht, die Video-Regeln liegen bei null (Long +0,12 R,
+Short −0,10 R). V3 ist positiv, aber zufällige Long-Einstiege mit denselben Regeln schaffen im Schnitt fast
+genauso viel (+0,071 gegen +0,079 R): Die Muster tragen nichts Messbares bei.
+
+```
+python -m candle_patterns h4-download
+python -m candle_patterns h4-backtest
+```
+
 ## Benutzung
 
 Python ≥ 3.10, nur Standardbibliothek. Alle Befehle im Hauptordner des Repos.
@@ -357,6 +382,7 @@ candle_patterns/crypto.py      Krypto-Backtest (Alpaca-Krypto-Kerzen, Kosten, Br
 candle_patterns/forex.py       Forex-Backtest über Währungs-ETFs
 candle_patterns/daily.py       Backtest auf Tageskerzen (Aktien und Futures-ETFs)
 candle_patterns/intraday.py    Backtest auf 5-Minuten-Kerzen (Aktien, flat zum Handelsschluss)
+candle_patterns/h4.py          Backtest auf 4-Stunden-Kerzen (Aktien)
 candle_patterns/alpaca.py      Alpaca-Paper-Client (verweigert Live-Konten)
 candle_patterns/live.py        Paper-Trading: run / sync, drei Varianten
 candle_patterns/dashboard.py   docs/index.html (Vorlage: dashboard_template.html)
