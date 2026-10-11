@@ -140,5 +140,17 @@ class Hourly(unittest.TestCase):
         self.assertEqual((h[-1].o, h[-1].c), (112, 112.5))
 
 
+class LongOnly(unittest.TestCase):
+    def test_long_only_never_shorts_and_keeps_the_longs(self):
+        from tests.synth import make_bars
+        bars = make_bars("X", days=200, seed=3)
+        both, longs = CandlePatterns("X", Params()), CandlePatterns("X", Params(long_only=True))
+        sb = [s for b in bars if (s := both.on_bar(b))]
+        sl = [s for b in bars if (s := longs.on_bar(b))]
+        self.assertTrue(any(s.side < 0 for s in sb), "test data should produce shorts")
+        self.assertTrue(sl and all(s.side > 0 for s in sl))
+        self.assertTrue({s.t for s in sb if s.side > 0} <= {s.t for s in sl})
+
+
 if __name__ == "__main__":
     unittest.main()

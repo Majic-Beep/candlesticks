@@ -24,6 +24,7 @@ average body of the `body_avg_len` candles before it.
 Trade: market order at the next candle's open (the video enters at the close of the pattern), stop beyond
     the pattern's extreme (`stop_buffer_atr` x ATR), take profit at `rr` x the planned risk, close after
     `max_hold_bars` candles at the latest. Long and short on the same candle = no trade.
+    With `long_only` the bearish patterns are not traded at all.
 
 The class only ever sees candles that are already closed (`on_bar` is called after a candle is complete),
 so it cannot look into the future. tests/test_no_lookahead.py checks that.
@@ -170,6 +171,8 @@ class CandlePatterns:
         window = bars[-25:]
         cands = []
         for side, seq in ((1, window), (-1, [_flip(b) for b in window])):
+            if side < 0 and p.long_only:
+                continue
             found = [(n, k) for n, k in bullish_patterns(seq, avg, p) if n in p.patterns]
             if not found:
                 continue

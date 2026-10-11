@@ -127,7 +127,7 @@ footer{color:var(--muted);font-size:12px;margin-top:24px}
 
 <div class="card">
   <h2>Die Live-Varianten im Backtest</h2>
-  <p class="desc" id="vbtDesc">Beide eingefrorenen Varianten mit ihrem Live-Budget über denselben Zeitraum. Das ist die Messlatte für das Paper-Trading. Variante 1 nutzt die vorab festgelegten Video-Regeln und ist damit ein ehrlicher Test. Die Parameter von Variante 2 wurden mit Daten bis zum Live-Start gewählt; ihre Kurve ist deshalb zum Teil im Nachhinein ausgewählt und zu optimistisch.</p>
+  <p class="desc" id="vbtDesc">Alle eingefrorenen Varianten mit ihrem Live-Budget über denselben Zeitraum. Das ist die Messlatte für das Paper-Trading. Variante 1 nutzt die vorab festgelegten Video-Regeln und ist damit ein ehrlicher Test. Variante 2 wurde per Walk-Forward-Regel gewählt, Variante 3 nach Ansicht aller Daten; ihre Kurven sind deshalb zum Teil im Nachhinein ausgewählt und zu optimistisch. Zufällige Long-Einstiege mit den Regeln von V3 brachten im Schnitt etwa +0,045 R pro Trade – nur der Teil darüber kommt von den Mustern.</p>
   <div class="legend" id="vbtLegend"></div>
   <div class="chart" id="vbtChart"></div>
   <div class="scroll" id="vbtTbl" style="margin-top:12px"></div>
@@ -135,8 +135,8 @@ footer{color:var(--muted);font-size:12px;margin-top:24px}
 </div>
 
 <div class="card">
-  <h2>Live Paper-Trading: Variante 1 gegen Variante 2</h2>
-  <p class="desc">Beide eingefrorenen Varianten handeln parallel im Paper-Konto. Neben jedem Live-Ergebnis steht, was die Backtest-Engine an denselben Tagen gehandelt hätte; große Abweichungen zeigen Slippage, Datenunterschiede oder Ausführungsfehler.</p>
+  <h2>Live Paper-Trading: die drei Varianten im Vergleich</h2>
+  <p class="desc">Die eingefrorenen Varianten handeln parallel im Paper-Konto. Neben jedem Live-Ergebnis steht, was die Backtest-Engine an denselben Tagen gehandelt hätte; große Abweichungen zeigen Slippage, Datenunterschiede oder Ausführungsfehler.</p>
   <div id="liveBox"></div>
 </div>
 
@@ -479,7 +479,8 @@ function renderCompare() {
 const VCOL = ["--s1", "--s2", "--s3"];
 const describe = p => [p.require_level === false ? "ohne Level" : "Level-Toleranz " + fmtNum(p.touch_tol_atr, 2) + " ATR",
   p.trend_filter ? "Trendfilter " + p.trend_len + " Kerzen" : "ohne Trendfilter", "Ziel " + fmtNum(p.rr, 1) + " R",
-  "max. " + p.max_hold_bars + " Kerzen", (p.patterns || []).length + " Muster"].join(" · ");
+  "max. " + p.max_hold_bars + " Kerzen", (p.patterns || []).length + " Muster", p.long_only ? "nur Long" : "Long + Short",
+  "Mindest-Stop " + fmtNum(p.min_risk_atr, 2) + " ATR"].join(" · ");
 const liveVariants = () => Object.entries((LIVE && LIVE.variants) || {});
 
 function liveConfig(box) {
@@ -496,7 +497,7 @@ function liveConfig(box) {
   table(box.appendChild(el("div", {class: "scroll"})), [{h: "Variante", k: "label"}, {h: "Regeln", f: r => describe(r.params || {})},
     {h: "Budget", f: r => fmtUsd(r.budget)}], vs.map(([vid, v]) => ({vid, ...v})));
   const d = el("p", {class: "desc"}); d.style.marginTop = "8px";
-  d.textContent = "Beide Varianten sind eingefroren. Will eine Variante die Gegenseite der anderen handeln, hat abwechselnd je Stunde eine Vorrang. " +
+  d.textContent = "Die Varianten sind eingefroren (V3 seit 11.10.2026). Will eine Variante die Gegenseite einer anderen handeln, wechselt der Vorrang stündlich. " +
     "Symbole, die ein anderer Bot im Konto hält oder handelt, werden ausgelassen.";
   box.append(d);
 }

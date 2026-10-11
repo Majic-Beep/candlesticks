@@ -5,16 +5,18 @@
 // "Variant" selects one of the two frozen paper-test variants (results/live_variants.json):
 //   V1 = video rules: all six patterns, level tolerance 0.10 ATR, no trend filter, target 2 R
 //   V2 = all six patterns, level tolerance 0.25 ATR, 50-candle trend filter, target 1.5 R (walk-forward choice)
+//   V3 = all six patterns, LONG ONLY, 50-candle trend filter, stop at least 0.5 ATR, target 2 R
 //   Custom = use the inputs below.
-// Capital 25,000 per variant, as in the paper account.
+// Capital 16,667 per variant (50,000 split into thirds), as in the paper account.
 // Use on a 1-hour chart of a US stock/ETF, regular trading hours only (candles 09:30, 10:30, ... 15:30).
 // Differences to the Python engine: early-close days are traded here, and a gap beyond stop/target at the entry
 // open is not skipped. The Python backtest and the paper account are the reference.
-strategy("Candle Patterns at Key Levels", overlay = true, initial_capital = 25000, commission_type = strategy.commission.percent,
+strategy("Candle Patterns at Key Levels", overlay = true, initial_capital = 16667, commission_type = strategy.commission.percent,
      commission_value = 0.0, slippage = 2, process_orders_on_close = false, calc_on_every_tick = false)
 
-variant   = input.string("V1", "Variant", options = ["V1", "V2", "Custom"])
+variant   = input.string("V1", "Variant", options = ["V1", "V2", "V3", "Custom"])
 trendIn   = input.bool(false, "Trend filter (Custom)", tooltip = "Long only above the 50-candle average of closes, short only below.")
+longIn    = input.bool(false, "Long only (Custom)")
 tolIn     = input.float(0.10, "Level tolerance x ATR (Custom)", step = 0.05)
 rrIn      = input.float(2.0, "Target in R (Custom)", step = 0.25)
 useLevel  = input.bool(true, "Require a key level")
@@ -35,15 +37,17 @@ minShrink = input.int(3, "Shrinking candles (min)")
 minCons   = input.int(3, "Consolidation candles (min)")
 trendLen  = input.int(50, "Trend average length")
 bufAtr    = input.float(0.05, "Stop buffer x ATR")
-minRiskAtr = input.float(0.25, "Min risk x ATR")
+minRiskIn = input.float(0.25, "Min risk x ATR (Custom)")
 maxHold   = input.int(35, "Max hold (candles)")
 riskPct   = input.float(0.5, "Risk per trade (% equity)") / 100
 maxPosPct = input.float(25, "Max position (% equity)") / 100
 
 // effective rules of the selected variant
-useTrend = variant == "V1" ? false : variant == "V2" ? true : trendIn
-tolAtr   = variant == "V1" ? 0.10 : variant == "V2" ? 0.25 : tolIn
-rr       = variant == "V1" ? 2.0 : variant == "V2" ? 1.5 : rrIn
+useTrend = variant == "V1" ? false : variant == "V2" or variant == "V3" ? true : trendIn
+longOnly = variant == "V3" ? true : variant == "Custom" ? longIn : false
+minRiskAtr = variant == "V3" ? 0.5 : variant == "Custom" ? minRiskIn : 0.25
+tolAtr   = variant == "V1" or variant == "V3" ? 0.10 : variant == "V2" ? 0.25 : tolIn
+rr       = variant == "V1" or variant == "V3" ? 2.0 : variant == "V2" ? 1.5 : rrIn
 
 // ---- measures (same definitions as Python: simple averages)
 atr    = ta.sma(ta.tr(true), atrLen)
@@ -148,7 +152,7 @@ bear() =>
     k
 
 kL = bull()
-kS = bear()
+kS = longOnly ? 0 : bear()
 tol = tolAtr * atr
 
 check(int side, int k) =>

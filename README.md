@@ -7,18 +7,21 @@ Mechanisierte Version der Strategie aus dem Video
 [The Sneaky Pivot](https://github.com/Majic-Beep/the-sneaky-pivot):
 
 - ein **Backtest ohne Blick in die Zukunft** (Kerze-für-Kerze-Engine, Walk-Forward, versiegelter Hold-out),
-- **Paper-Trading auf Alpaca** mit zwei eingefrorenen Varianten parallel und genau demselben Signal-Code wie im Backtest,
+- **Paper-Trading auf Alpaca** mit drei eingefrorenen Varianten parallel und genau demselben Signal-Code wie im Backtest,
 - ein **Dashboard** (`docs/index.html`) für Backtest, Live-Ergebnisse und den Vergleich der Varianten,
 - eine **Pine-Script-Version** für TradingView (`pine/candle_patterns.pine`).
 
 **Nur Paper-Trading.** Der Code verweigert jede Alpaca-URL, die nicht `paper-api.` ist.
 
-## Stand (9. Oktober 2026)
+## Stand (11. Oktober 2026)
 
 - **Ergebnis des Backtests:** Die Video-Regeln verlieren nach Kosten, knapp statistisch belegt (t ≈ −2,1 bis −2,4).
   Long-Trades liegen leicht im Plus (+0,05 R), Short-Trades klar im Minus (−0,15 R). Ein belegter Vorteil
   existiert nicht.
-- **Paper-Trading:** Beide Varianten handeln ab Montag, 12. Oktober 2026, parallel mit je 25.000 $.
+- **Paper-Trading:** Drei Varianten handeln ab Montag, 12. Oktober 2026, parallel mit je 16.667 $ (50.000 $ gedrittelt).
+- **Optimierung (11.10.2026):** Variante 3 – nur Long, Trendfilter, Mindest-Stop 0,5 ATR – ist im Backtest klar
+  positiv (+0,104 R, t = +3,49), aber im Nachhinein gewählt. Der Großteil ihres Gewinns kommt vom steigenden Markt
+  (siehe „Optimierung“).
 - **Dashboard:** https://claude.ai/artifact/TECWJJdJ7SiBag1AATdW3c (privat; wird nach jedem Handelstag aktualisiert).
   Die Parameter sind eingefroren (`results/live_variants.json`).
 
@@ -72,20 +75,22 @@ zusammen höchstens 100 %.
 **Universum:** XLF, XLE, XLV, SMH, GLD, TLT, JPM, AVGO, NFLX, COST, LLY, XOM – bewusst ohne Überschneidung mit
 dem Sneaky-Pivot-Universum, damit sich die beiden Bots im gemeinsamen Paper-Konto nie in die Quere kommen.
 
-## Die zwei Live-Varianten
+## Die drei Live-Varianten
 
-Festgelegt am 9. Oktober 2026 in `results/live_variants.json`:
+V1 und V2 festgelegt am 9. Oktober 2026, V3 am 11. Oktober 2026, alle in `results/live_variants.json`:
 
-| | V1 – Video-Regeln | V2 – Trendfilter, Ziel 1,5 R |
-|---|---|---|
-| Muster | alle sechs | alle sechs |
-| Level-Toleranz | 0,10 ATR | 0,25 ATR |
-| Trendfilter | aus | Long nur über, Short nur unter dem 50-Kerzen-Durchschnitt |
-| Ziel | 2 R | 1,5 R |
-| Herkunft | vorab festgelegt, nicht optimiert | per Walk-Forward-Regel gewählt auf 05/2025 – 05/2026 |
-| Budget | 25.000 $ | 25.000 $ |
+| | V1 – Video-Regeln | V2 – Trendfilter, Ziel 1,5 R | V3 – nur Long, Trend, Mindest-Stop |
+|---|---|---|---|
+| Muster | alle sechs | alle sechs | alle sechs, nur bullisch |
+| Seiten | Long + Short | Long + Short | nur Long |
+| Level-Toleranz | 0,10 ATR | 0,25 ATR | 0,10 ATR |
+| Trendfilter | aus | Long nur über, Short nur unter dem 50-Kerzen-Durchschnitt | Long nur über dem 50-Kerzen-Durchschnitt |
+| Mindest-Stop | 0,25 ATR | 0,25 ATR | 0,5 ATR |
+| Ziel | 2 R | 1,5 R | 2 R |
+| Herkunft | vorab festgelegt, nicht optimiert | per Walk-Forward-Regel gewählt auf 05/2025 – 05/2026 | nach Ansicht aller Daten bis 09.10.2026 gewählt (in-sample) |
+| Budget | 16.667 $ | 16.667 $ | 16.667 $ |
 
-Zusammen höchstens **50.000 $** des gemeinsamen Alpaca-Paper-Kontos (`CP_BUDGET`, vor dem ersten Live-Lauf
+Zusammen höchstens **50.000 $**, gedrittelt, des gemeinsamen Alpaca-Paper-Kontos (`CP_BUDGET`, vor dem ersten Live-Lauf
 änderbar; danach steht es in `results/live_state.json`). Sneaky Pivot nutzt weitere 50.000 $ desselben Kontos.
 
 ## Warum der Backtest nicht geschönt ist
@@ -124,14 +129,41 @@ gedeckelt und riskieren deshalb weniger als 0,5 %. Gerade diese Trades verlieren
 3-Bar-Umkehr −0,02 R (194), schrumpfende Kerzen −0,02 R (106), Engulfing −0,07 R (4.009), Pin Bar −0,09 R (1.311).
 Keines davon ist für sich signifikant; die beiden positiven sind die Fortsetzungsmuster.
 
-**Die beiden Live-Varianten im Backtest** (je 25.000 $, ab 02/2020; `results/variants_backtest.json`):
+**Die drei Live-Varianten im Backtest** (je 16.667 $, ab 02/2020; `results/variants_backtest.json`):
 
 | Variante | Trades | Rendite | Max. DD | Ø pro Trade | t |
 |---|---|---|---|---|---|
-| V1 – Video-Regeln | 6.730 | −13,6 % | −27,1 % | −0,047 R | −2,22 |
-| V2 – Trendfilter, Ziel 1,5 R | 6.405 | +0,3 % | −18,6 % | −0,037 R | −1,82 |
+| V1 – Video-Regeln | 6.742 | −12,1 % | −27,6 % | −0,049 R | −2,31 |
+| V2 – Trendfilter, Ziel 1,5 R | 6.391 | −3,0 % | −18,1 % | −0,042 R | −2,05 |
+| V3 – nur Long, Trend, Mindest-Stop | 3.360 | +159,5 % | −12,4 % | +0,104 R | +3,49 |
 
-V2 ist zum Teil im Nachhinein gewählt und deshalb zu optimistisch; ehrlich ist erst das Paper-Trading.
+V2 und V3 sind im Nachhinein gewählt und deshalb zu optimistisch; ehrlich ist erst das Paper-Trading.
+
+## Optimierung (11. Oktober 2026)
+
+Ausgangspunkt war die Diagnose der Video-Regeln: Long-Trades +0,056 R, Short-Trades −0,158 R; Engulfing und
+Pin Bar verlieren, Breakout und 3-Bar-Fortsetzung sind leicht positiv; Stop-Ausstiege kosten im Schnitt −1,27 R
+(enge Stops, Slippage, Lücken). Getestet wurden acht Varianten (02/2020 – 10/2026, gleiche Engine und Kosten):
+
+| Variante | Trades | Ø pro Trade | t | nur 05–10/2026 |
+|---|---|---|---|---|
+| A Video-Regeln | 6.765 | −0,050 R | −2,36 | −0,20 R |
+| B nur Long | 5.426 | +0,021 R | +0,85 | −0,14 R |
+| C nur Fortsetzungsmuster | 2.321 | +0,019 R | +0,61 | −0,16 R |
+| D nur Long + Fortsetzung | 1.363 | +0,105 R | +2,65 | −0,19 R |
+| E Mindest-Stop 0,5 ATR | 6.552 | −0,038 R | −1,76 | −0,14 R |
+| F nur Long + Mindest-Stop 0,5 ATR | 5.154 | +0,044 R | +1,79 | −0,10 R |
+| G nur Long + Trendfilter | 3.559 | +0,075 R | +2,49 | −0,09 R |
+| **H nur Long + Trend + Mindest-Stop (= V3)** | 3.395 | **+0,105 R** | **+3,54** | −0,10 R |
+
+**Gegenprobe:** Long-Einstiege an zufälligen Zeitpunkten mit denselben Regeln wie H (Trendfilter, Mindest-Stop,
+Ziel 2 R, ohne Muster und Level) brachten in drei Läufen +0,007, +0,057 und +0,072 R pro Trade. Muster und Levels
+tragen also nur etwa +0,06 R bei; der Rest ist der steigende Aktienmarkt 2020 – 2026.
+
+**Einordnung:** Die Varianten wurden mit Wissen über alle Daten gewählt; bei acht Tests braucht ein echter
+Vorteil etwa t ≥ 2,7. Auch V3 ist in den letzten Monaten negativ (−0,10 R, 209 Trades, nicht signifikant), und
+als reine Long-Strategie hängt sie am Markt. Darum läuft sie als dritte Variante im Paper-Trading, statt V1/V2
+zu ersetzen.
 
 ## Benutzung
 
@@ -161,7 +193,7 @@ Um 16:01 zusätzlich `sync` (Fills und Simulation nach `results/live.json`) und 
 
 - **Order-IDs** `cp-<variante>-<Signalkerze JJJJMMTTHHMM>-<symbol>`, Zeit-Ausstiege mit `-x`. Der Bot fasst nur eigene Orders an.
 - **Andere Bots:** Symbole mit fremder Position oder Order werden ausgelassen.
-- **Beide Varianten im selben Symbol:** gleiche Richtung erlaubt; die Gegenrichtung wird ausgelassen
+- **Mehrere Varianten im selben Symbol:** gleiche Richtung erlaubt; die Gegenrichtung wird ausgelassen
   (Vorrang wechselt stündlich).
 - **Feiertage / verkürzte Tage** über den Alpaca-Kalender.
 - **Protokoll:** `results/live_signals.csv`, `results/live_state.json`, `results/live.json`.
@@ -170,7 +202,7 @@ Die Cloud-Routinen beschreibt `routine/ROUTINE.md`.
 
 ## TradingView
 
-`pine/candle_patterns.pine` auf einen 1-Stunden-Chart (nur reguläre Handelszeit) legen. **Variant** wählt V1, V2
+`pine/candle_patterns.pine` auf einen 1-Stunden-Chart (nur reguläre Handelszeit) legen. **Variant** wählt V1, V2, V3
 oder Custom. Unterschiede zur Python-Engine: verkürzte Tage werden gehandelt, und eine Eröffnung jenseits von
 Stop/Ziel wird nicht ausgelassen. Maßgeblich sind Python-Backtest und Paper-Trading.
 
@@ -184,10 +216,10 @@ candle_patterns/walkforward.py Walk-Forward, Hold-out, Referenzen, Raster-Varian
 candle_patterns/variants.py    Backtest der eingefrorenen Live-Varianten
 candle_patterns/data.py        Alpaca-Kursdaten, CSV-Cache, 1-Stunden-Kerzen
 candle_patterns/alpaca.py      Alpaca-Paper-Client (verweigert Live-Konten)
-candle_patterns/live.py        Paper-Trading: run / sync, zwei Varianten
+candle_patterns/live.py        Paper-Trading: run / sync, drei Varianten
 candle_patterns/dashboard.py   docs/index.html (Vorlage: dashboard_template.html)
 results/live_variants.json     die eingefrorenen Live-Varianten
-pine/candle_patterns.pine      TradingView-Strategie (V1 / V2 / Custom)
+pine/candle_patterns.pine      TradingView-Strategie (V1 / V2 / V3 / Custom)
 routine/ROUTINE.md             Cloud-Routinen
-tests/                         kein Blick in die Zukunft, Muster, Fills, Live-Ablauf mit zwei Varianten
+tests/                         kein Blick in die Zukunft, Muster, Fills, Live-Ablauf mit mehreren Varianten
 ```

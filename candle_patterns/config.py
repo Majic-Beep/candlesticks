@@ -51,6 +51,7 @@ class Params:
     min_consolidation: int = 3      # breakout candles: at least this many small candles before the break
     trend_filter: bool = False      # long only above the 50-candle average of closes, short only below
     trend_len: int = 50
+    long_only: bool = False         # trade only the bullish patterns (variant 3)
     # --- entry / exits -----------------------------------------------------------------
     stop_buffer_atr: float = 0.05   # stop sits this far beyond the pattern's extreme
     min_risk_atr: float = 0.25      # skip setups whose stop is closer than this many ATR (costs would dominate)
