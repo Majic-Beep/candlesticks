@@ -12,6 +12,8 @@
   forex-backtest                    same strategy on the currency ETFs -> results/forex/
   daily-download                    daily stock bars since 2016 -> data/daily_*.csv
   daily-backtest                    same strategy on daily candles -> results/daily/
+  futures-download                  daily bars of futures-tracking ETFs -> data/daily_*.csv
+  futures-backtest                  daily candles on the futures proxies -> results/futures/
 """
 from __future__ import annotations
 
@@ -23,7 +25,7 @@ from .config import UNIVERSE
 
 def main() -> None:
     ap = argparse.ArgumentParser(prog="candle_patterns")
-    ap.add_argument("command", choices=["download", "backtest", "variants", "run", "sync", "dashboard", "crypto-download", "crypto-backtest", "forex-download", "forex-backtest", "daily-download", "daily-backtest"])
+    ap.add_argument("command", choices=["download", "backtest", "variants", "run", "sync", "dashboard", "crypto-download", "crypto-backtest", "forex-download", "forex-backtest", "daily-download", "daily-backtest", "futures-download", "futures-backtest"])
     ap.add_argument("--start", default="2019-01-01")
     ap.add_argument("--symbols", default=",".join(UNIVERSE))
     ap.add_argument("--dry-run", action="store_true")
@@ -71,13 +73,20 @@ def main() -> None:
     elif a.command == "daily-download":
         from .daily import download
         download()
-    elif a.command in ("crypto-backtest", "forex-backtest", "daily-backtest"):
+    elif a.command == "futures-download":
+        from .daily import FUTURES_PROXIES, download
+        download(symbols=list(FUTURES_PROXIES))
+    elif a.command in ("crypto-backtest", "forex-backtest", "daily-backtest", "futures-backtest"):
         if a.command == "crypto-backtest":
             from .crypto import run_backtest
         elif a.command == "forex-backtest":
             from .forex import run_backtest
-        else:
+        elif a.command == "daily-backtest":
             from .daily import run_backtest
+        else:
+            from functools import partial
+            from .daily import FUTURES_COST_BPS, FUTURES_OUT, FUTURES_PROXIES, run_backtest as _rb
+            run_backtest = partial(_rb, symbols=list(FUTURES_PROXIES), out_dir=FUTURES_OUT, cost_bps=FUTURES_COST_BPS)
         r = run_backtest()
         for k in ("walk_forward", "holdout", "standard", "in_sample"):
             s = r["walk_forward"][k]["summary"]

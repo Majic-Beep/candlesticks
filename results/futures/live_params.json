@@ -1,0 +1,41 @@
+{
+  "chosen_on": [
+    "2025-05-01",
+    "2026-05-01"
+  ],
+  "params": {
+    "pivot_strength": 3,
+    "level_lookback": 60,
+    "touch_tol_atr": 0.1,
+    "require_level": true,
+    "patterns": [
+      "engulfing",
+      "pin_bar",
+      "three_bar_reversal",
+      "three_bar_continuation",
+      "breakout",
+      "shrinking"
+    ],
+    "atr_len": 14,
+    "body_avg_len": 20,
+    "large_body": 1.2,
+    "small_body": 0.6,
+    "pin_wick": 0.66,
+    "min_shrink": 3,
+    "min_consolidation": 3,
+    "trend_filter": true,
+    "trend_len": 50,
+    "long_only": false,
+    "stop_buffer_atr": 0.05,
+    "min_risk_atr": 0.25,
+    "rr": 1.5,
+    "max_hold_bars": 20,
+    "tick": 0.01,
+    "slippage_bps": 5.0,
+    "commission_per_share": 0.0,
+    "risk_pct": 0.005,
+    "max_position_pct": 0.25,
+    "max_gross_pct": 1.0,
+    "qty_step": 1.0
+  }
+}

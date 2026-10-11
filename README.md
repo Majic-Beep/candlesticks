@@ -246,6 +246,34 @@ python -m candle_patterns daily-download
 python -m candle_patterns daily-backtest
 ```
 
+## Tageskerzen auf Futures (11. Oktober 2026)
+
+Futures-Kurse sind hier nicht verfügbar (Alpaca hat keine Futures). Getestet wurde mit ETFs, die die Futures selbst
+halten und rollen und deshalb auf Tageskerzen eng folgen: SPY/QQQ/IWM/DIA (ES, NQ, RTY, YM), TLT/IEF (ZB, ZN),
+GLD/SLV/CPER (Gold, Silber, Kupfer), USO/UNG (Öl, Erdgas), CORN/WEAT/SOYB (Mais, Weizen, Soja), FXE/FXY (6E, 6J).
+Alpaca-Tagesdaten 01/2016 – 10/2026, ausgewertet ab 02/2017, Kosten 0,05 % pro Seite, Einstellungen wie bei den
+Aktien-Tageskerzen. Ergebnisse in `results/futures/`.
+
+| Test (ab 02/2017) | Trades | Ø pro Trade | t |
+|---|---|---|---|
+| Walk-Forward 02/2017 – 04/2026 | 1.477 | −0,063 R | −1,79 |
+| Hold-out 05 – 10/2026 | 61 | −0,140 R | −0,86 |
+| V1 Video-Regeln | 1.687 | −0,066 R | −1,94 |
+| V2 | 1.400 | −0,042 R | −1,28 |
+| V3 nur Long, Trend, Mindest-Stop | 697 | +0,049 R | +0,90 |
+| Gegenprobe Zufall Long + Short, Regeln wie V1 (6 Läufe) | ≈ 1.100 | Mittel −0,122 R | |
+| Gegenprobe Zufall nur Long, Regeln wie V3 (6 Läufe) | ≈ 600 | Mittel +0,015 R | |
+
+**Ergebnis:** Kein verwertbarer Vorteil. Die Muster sind etwas besser als Zufall (V1 +0,06 R, V3 +0,03 R über der
+Gegenprobe), aber das reicht nicht für Gewinn: V1 und V2 verlieren, V3 ist nicht signifikant. Short-Trades
+verlieren auch hier (−0,16 R bei V1); ohne den Rückenwind steigender Aktienkurse fehlt V3 der Großteil ihres Gewinns
+(Aktienindizes +0,11 R, Rohstoffe/Anleihen/Währungen +0,02 R).
+
+```
+python -m candle_patterns futures-download
+python -m candle_patterns futures-backtest
+```
+
 ## Benutzung
 
 Python ≥ 3.10, nur Standardbibliothek. Alle Befehle im Hauptordner des Repos.
@@ -298,7 +326,7 @@ candle_patterns/variants.py    Backtest der eingefrorenen Live-Varianten
 candle_patterns/data.py        Alpaca-Kursdaten, CSV-Cache, 1-Stunden-Kerzen
 candle_patterns/crypto.py      Krypto-Backtest (Alpaca-Krypto-Kerzen, Kosten, Bruchteile)
 candle_patterns/forex.py       Forex-Backtest über Währungs-ETFs
-candle_patterns/daily.py       Backtest auf Tageskerzen (Aktien)
+candle_patterns/daily.py       Backtest auf Tageskerzen (Aktien und Futures-ETFs)
 candle_patterns/alpaca.py      Alpaca-Paper-Client (verweigert Live-Konten)
 candle_patterns/live.py        Paper-Trading: run / sync, drei Varianten
 candle_patterns/dashboard.py   docs/index.html (Vorlage: dashboard_template.html)

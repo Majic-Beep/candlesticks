@@ -2,6 +2,8 @@
 
     python -m candle_patterns daily-download     # Alpaca daily bars since 2016 -> data/daily_<SYM>.csv
     python -m candle_patterns daily-backtest     # walk-forward + hold-out + variants -> results/daily/
+    python -m candle_patterns futures-download   # futures-tracking ETFs (see FUTURES_PROXIES)
+    python -m candle_patterns futures-backtest   # -> results/futures/
 
 The bar-count parameters are translated to days and fixed before the test: levels from the last 60 days,
 trend = 50-day average, close after 20 days at the latest. Entry at the next day's open, as on the 1h chart.
@@ -28,6 +30,20 @@ DAILY_BASE = dict(level_lookback=60, max_hold_bars=20, trend_len=50)
 
 def daily_params(**kw) -> Params:
     return Params(**{**DAILY_BASE, **kw})
+
+
+# Futures are not available here (Alpaca has no futures data); these ETFs hold and roll the futures themselves,
+# so on daily candles they follow the continuous contracts closely. Key = ETF, value = the future it tracks.
+FUTURES_PROXIES = {
+    "SPY": "ES (S&P 500)", "QQQ": "NQ (Nasdaq 100)", "IWM": "RTY (Russell 2000)", "DIA": "YM (Dow)",
+    "TLT": "ZB (30y Treasury)", "IEF": "ZN (10y Treasury)",
+    "GLD": "GC (gold)", "SLV": "SI (silver)", "CPER": "HG (copper)",
+    "USO": "CL (crude oil)", "UNG": "NG (natural gas)",
+    "CORN": "ZC (corn)", "WEAT": "ZW (wheat)", "SOYB": "ZS (soybeans)",
+    "FXE": "6E (euro)", "FXY": "6J (yen)",
+}
+FUTURES_OUT = os.path.join(RESULTS_DIR, "futures")
+FUTURES_COST_BPS = 5.0  # per side: some of these ETFs are thinly traded
 
 
 def _path(sym: str) -> str:
@@ -69,10 +85,10 @@ def fetch_daily(symbol: str, start: date) -> list[Bar]:
     return out
 
 
-def download(start: date = date(2016, 1, 1)) -> dict:
+def download(start: date = date(2016, 1, 1), symbols: list[str] = DAILY_UNIVERSE) -> dict:
     os.makedirs(DATA_DIR, exist_ok=True)
     out = {}
-    for s in DAILY_UNIVERSE:
+    for s in symbols:
         bars = fetch_daily(s, start)
         with open(_path(s), "w", newline="") as f:
             w = csv.writer(f)
@@ -84,9 +100,9 @@ def download(start: date = date(2016, 1, 1)) -> dict:
     return out
 
 
-def load() -> dict[str, list[Bar]]:
+def load(symbols: list[str] = DAILY_UNIVERSE) -> dict[str, list[Bar]]:
     out = {}
-    for s in DAILY_UNIVERSE:
+    for s in symbols:
         if os.path.exists(_path(s)):
             with open(_path(s), newline="") as f:
                 out[s] = [Bar(s, int(r["t"]), float(r["o"]), float(r["h"]), float(r["l"]), float(r["c"]), float(r["v"]))
@@ -94,27 +110,29 @@ def load() -> dict[str, list[Bar]]:
     return out
 
 
-def run_backtest(equity: float = 50_000.0) -> dict:
+def run_backtest(equity: float = 50_000.0, symbols: list[str] = DAILY_UNIVERSE, out_dir: str = DAILY_OUT,
+                 cost_bps: float | None = None) -> dict:
     from .engine import Backtest
     from .live import load_variants
     from .metrics import full_report
     from .walkforward import run as walk_forward
-    bars = load()
+    bars = load(symbols)
     if not bars:
         raise SystemExit("no daily bars - run `python -m candle_patterns daily-download` first")
-    os.makedirs(DAILY_OUT, exist_ok=True)
-    wf = walk_forward(bars, base=daily_params(), equity=equity, out_path=os.path.join(DAILY_OUT, "backtest.json"),
+    os.makedirs(out_dir, exist_ok=True)
+    cost = {} if cost_bps is None else {"slippage_bps": cost_bps}
+    wf = walk_forward(bars, base=daily_params(**cost), equity=equity, out_path=os.path.join(out_dir, "backtest.json"),
                       min_bars_per_day=1)
     out = {"generated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"), "daily_base": DAILY_BASE,
            "symbols": sorted(bars), "variants": {}}
     start = date.fromisoformat(wf["walk_forward_range"][0])
     for vid, v in load_variants().items():
-        p = v["params"].with_(**DAILY_BASE)
+        p = v["params"].with_(**DAILY_BASE, **cost)
         bt = Backtest(bars, p, equity, trade_from=start, min_bars_per_day=1).run()
         rep = full_report([t.to_dict() for t in bt.trades], bt.equity_curve, equity)
         out["variants"][vid] = {"label": v.get("label", vid), "summary": rep["summary"], "by_side": rep["by_side"],
                                 "by_pattern": rep["by_pattern"], "by_symbol": rep["by_symbol"], "by_year": rep["by_year"],
                                 "by_exit": rep["by_exit"]}
-    with open(os.path.join(DAILY_OUT, "variants.json"), "w") as f:
+    with open(os.path.join(out_dir, "variants.json"), "w") as f:
         json.dump(out, f, indent=1)
     return {"walk_forward": wf, "variants": out}
