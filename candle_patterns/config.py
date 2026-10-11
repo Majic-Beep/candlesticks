@@ -57,6 +57,8 @@ class Params:
     min_risk_atr: float = 0.25      # skip setups whose stop is closer than this many ATR (costs would dominate)
     rr: float = 2.0                 # take profit at rr x risk ("twice the stop loss")
     max_hold_bars: int = 35         # close at the next open after this many candles (5 trading days)
+    last_entry: str = ""            # "HH:MM": no signal from candles starting later (intraday tests); "" = off
+    flat_at: str = ""               # "HH:MM": close open positions at the open of this candle (intraday); "" = off
     tick: float = 0.01
     # --- costs and sizing --------------------------------------------------------------
     slippage_bps: float = 2.0       # per side, on market and stop fills

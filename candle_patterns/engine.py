@@ -22,7 +22,7 @@ from __future__ import annotations
 
 from collections import Counter, defaultdict
 from dataclasses import asdict, dataclass
-from datetime import date, datetime
+from datetime import date, datetime, time
 from typing import Callable, Optional
 
 from .config import BARS_PER_DAY, ET, Params
@@ -61,6 +61,11 @@ class _Position:
     entry: float
     entry_time: str
     bars: int = 0
+
+
+def _hhmm(s: str) -> time:
+    h, m = s.split(":")
+    return time(int(h), int(m))
 
 
 def _fmt(t: int) -> str:
@@ -114,6 +119,8 @@ class Backtest:
                 sig = strategies[s].on_bar(bar, tradable=day in full_days[s])
                 if sig is None or not self._in_window(day):
                     continue
+                if sig.params.last_entry and bar.clock > _hhmm(sig.params.last_entry):
+                    continue  # intraday: too late in the day for a new trade
                 if s in positions or s in pending:
                     self.skipped["position open"] += 1
                     continue
@@ -144,7 +151,9 @@ class Backtest:
         pos = positions.get(s)
         if pos is not None:
             p = pos.sig.params
-            if pos.bars >= p.max_hold_bars:
+            if p.flat_at and (bar.clock >= _hhmm(p.flat_at) or str(bar.day) != pos.entry_time[:10]):
+                self._close(pos, positions, bar, bar.o, "eod", slip=True)
+            elif pos.bars >= p.max_hold_bars:
                 self._close(pos, positions, bar, bar.o, "time", slip=True)
             else:
                 self._check_exit(pos, positions, bar)
@@ -154,6 +163,9 @@ class Backtest:
         sig, qty = pending.pop(s)
         p = sig.params
         side = sig.side
+        if p.flat_at and (bar.day != datetime.fromtimestamp(sig.t, ET).date() or bar.clock >= _hhmm(p.flat_at)):
+            self.skipped["intraday entry would fall on another day"] += 1
+            return
         if (bar.o - sig.stop) * side <= 0 or (sig.target - bar.o) * side <= 0:
             self.skipped["opened beyond stop or target"] += 1
             return

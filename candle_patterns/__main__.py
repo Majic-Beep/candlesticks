@@ -14,6 +14,8 @@
   daily-backtest                    same strategy on daily candles -> results/daily/
   futures-download                  daily bars of futures-tracking ETFs -> data/daily_*.csv
   futures-backtest                  daily candles on the futures proxies -> results/futures/
+  m5-download                       5-minute stock bars since 2021 -> data/m5_*.csv
+  m5-backtest                       same strategy on 5-minute candles, flat every evening -> results/m5/
 """
 from __future__ import annotations
 
@@ -25,7 +27,7 @@ from .config import UNIVERSE
 
 def main() -> None:
     ap = argparse.ArgumentParser(prog="candle_patterns")
-    ap.add_argument("command", choices=["download", "backtest", "variants", "run", "sync", "dashboard", "crypto-download", "crypto-backtest", "forex-download", "forex-backtest", "daily-download", "daily-backtest", "futures-download", "futures-backtest"])
+    ap.add_argument("command", choices=["download", "backtest", "variants", "run", "sync", "dashboard", "crypto-download", "crypto-backtest", "forex-download", "forex-backtest", "daily-download", "daily-backtest", "futures-download", "futures-backtest", "m5-download", "m5-backtest"])
     ap.add_argument("--start", default="2019-01-01")
     ap.add_argument("--symbols", default=",".join(UNIVERSE))
     ap.add_argument("--dry-run", action="store_true")
@@ -76,13 +78,18 @@ def main() -> None:
     elif a.command == "futures-download":
         from .daily import FUTURES_PROXIES, download
         download(symbols=list(FUTURES_PROXIES))
-    elif a.command in ("crypto-backtest", "forex-backtest", "daily-backtest", "futures-backtest"):
+    elif a.command == "m5-download":
+        from .intraday import download
+        download()
+    elif a.command in ("crypto-backtest", "forex-backtest", "daily-backtest", "futures-backtest", "m5-backtest"):
         if a.command == "crypto-backtest":
             from .crypto import run_backtest
         elif a.command == "forex-backtest":
             from .forex import run_backtest
         elif a.command == "daily-backtest":
             from .daily import run_backtest
+        elif a.command == "m5-backtest":
+            from .intraday import run_backtest
         else:
             from functools import partial
             from .daily import FUTURES_COST_BPS, FUTURES_OUT, FUTURES_PROXIES, run_backtest as _rb

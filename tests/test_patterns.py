@@ -123,6 +123,13 @@ class Engine(unittest.TestCase):
         t = Backtest({"X": self.setup_day([(99.9, 100.2, 99.5, 100.0)])}, Q.with_(max_hold_bars=3)).run().trades
         self.assertEqual((t[0].reason, t[0].bars), ("time", 3))
 
+    def test_intraday_flat_and_last_entry(self):
+        q = Q.with_(flat_at="13:30", max_hold_bars=99)
+        t = Backtest({"X": self.setup_day([(99.9, 100.2, 99.5, 100.0)])}, q).run().trades
+        self.assertEqual((t[0].reason, t[0].exit_time[11:], t[0].exit), ("eod", "13:30", 100.0))
+        late = Q.with_(last_entry="09:00", flat_at="15:30")  # the 09:30 pin bar is already too late
+        self.assertEqual(Backtest({"X": self.setup_day([(99.9, 102.0, 99.8, 101.5)])}, late).run().trades, [])
+
     def test_no_level_no_trade(self):
         hist, d = flat_history()
         rows = [(98.0, 98.25, 97.3, 98.2)] + [(98.2, 98.3, 98.1, 98.2)] * 6  # pin far below every level
