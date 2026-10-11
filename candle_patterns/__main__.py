@@ -8,6 +8,8 @@
   dashboard                         build docs/index.html from the results
   crypto-download                   Alpaca crypto 1-hour bars since 2021 -> data/crypto_*.csv
   crypto-backtest                   same strategy on crypto -> results/crypto/
+  forex-download                    currency ETFs (FXE, FXB, FXY, ...) from Alpaca -> data/*.csv
+  forex-backtest                    same strategy on the currency ETFs -> results/forex/
 """
 from __future__ import annotations
 
@@ -19,7 +21,7 @@ from .config import UNIVERSE
 
 def main() -> None:
     ap = argparse.ArgumentParser(prog="candle_patterns")
-    ap.add_argument("command", choices=["download", "backtest", "variants", "run", "sync", "dashboard", "crypto-download", "crypto-backtest"])
+    ap.add_argument("command", choices=["download", "backtest", "variants", "run", "sync", "dashboard", "crypto-download", "crypto-backtest", "forex-download", "forex-backtest"])
     ap.add_argument("--start", default="2019-01-01")
     ap.add_argument("--symbols", default=",".join(UNIVERSE))
     ap.add_argument("--dry-run", action="store_true")
@@ -61,8 +63,14 @@ def main() -> None:
     elif a.command == "crypto-download":
         from .crypto import download
         download()
-    elif a.command == "crypto-backtest":
-        from .crypto import run_backtest
+    elif a.command == "forex-download":
+        from .forex import download
+        download()
+    elif a.command in ("crypto-backtest", "forex-backtest"):
+        if a.command == "crypto-backtest":
+            from .crypto import run_backtest
+        else:
+            from .forex import run_backtest
         r = run_backtest()
         for k in ("walk_forward", "holdout", "standard", "in_sample"):
             s = r["walk_forward"][k]["summary"]

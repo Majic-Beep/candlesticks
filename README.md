@@ -192,6 +192,34 @@ python -m candle_patterns crypto-download
 python -m candle_patterns crypto-backtest
 ```
 
+## Forex-Backtest über Währungs-ETFs (11. Oktober 2026)
+
+Echte Devisenkurse sind in der Cloud-Umgebung nicht in ausreichender Länge verfügbar (Alpaca hat keine Devisen,
+FMP verlangt einen höheren Tarif, TradingView liefert nur 5.000 Kerzen pro Abruf). Getestet wurde darum wie im
+NNFX-Projekt mit Währungs-ETFs von Alpaca: FXE (Euro), FXB (Pfund), FXY (Yen), FXA (AUD), FXC (CAD), FXF (Franken),
+UUP (Dollar-Index), 1-Stunden-Kerzen der US-Handelszeit, 01/2019 – 10/2026, ausgewertet ab 02/2020. Die ETFs sind
+dünn gehandelt; Kosten 0,05 % pro Seite. Ergebnisse in `results/forex/`.
+
+| Test (ab 02/2020) | Kosten | Trades | Ø pro Trade | t |
+|---|---|---|---|---|
+| Walk-Forward | 0,05 % | 2.198 | −0,459 R | −8,85 |
+| Hold-out 05 – 10/2026 | 0,05 % | 235 | −0,754 R | −4,46 |
+| V1 Video-Regeln | 0,05 % | 2.746 | −0,548 R | −11,33 |
+| V2 | 0,05 % | 2.132 | −0,504 R | −9,55 |
+| V3 nur Long, Trend, Mindest-Stop | 0,05 % | 952 | −0,457 R | −5,81 |
+| V1 Video-Regeln | keine | 2.751 | −0,046 R | −1,02 |
+| V3 | keine | 952 | −0,028 R | −0,37 |
+
+**Ergebnis:** Kein Vorteil, auch nicht ohne Kosten. Währungen bewegen sich pro Stunde sehr wenig: Der Stop liegt im
+Schnitt nur 0,3 % vom Einstieg entfernt, schon 0,02 % Kosten pro Seite machen daraus −0,25 R pro Trade. Kein
+Paper-Trading für Forex. Ein Test mit echten Spot-Devisenkursen (deutlich geringere Spreads) wäre nur mit einer
+anderen Datenquelle möglich.
+
+```
+python -m candle_patterns forex-download
+python -m candle_patterns forex-backtest
+```
+
 ## Benutzung
 
 Python ≥ 3.10, nur Standardbibliothek. Alle Befehle im Hauptordner des Repos.
@@ -243,6 +271,7 @@ candle_patterns/walkforward.py Walk-Forward, Hold-out, Referenzen, Raster-Varian
 candle_patterns/variants.py    Backtest der eingefrorenen Live-Varianten
 candle_patterns/data.py        Alpaca-Kursdaten, CSV-Cache, 1-Stunden-Kerzen
 candle_patterns/crypto.py      Krypto-Backtest (Alpaca-Krypto-Kerzen, Kosten, Bruchteile)
+candle_patterns/forex.py       Forex-Backtest über Währungs-ETFs
 candle_patterns/alpaca.py      Alpaca-Paper-Client (verweigert Live-Konten)
 candle_patterns/live.py        Paper-Trading: run / sync, drei Varianten
 candle_patterns/dashboard.py   docs/index.html (Vorlage: dashboard_template.html)
