@@ -45,7 +45,7 @@ class Trade:
     exit_time: str
     exit: float
     reason: str
-    qty: int
+    qty: float
     bars: int
     pnl: float
     r: float
@@ -57,7 +57,7 @@ class Trade:
 @dataclass
 class _Position:
     sig: Signal
-    qty: int
+    qty: float
     entry: float
     entry_time: str
     bars: int = 0
@@ -121,11 +121,11 @@ class Backtest:
                 cap_qty = equity * p.max_position_pct / sig.ref
                 used = sum(x.qty * x.entry for x in positions.values()) + sum(q * g.ref for g, q in pending.values())
                 gross_qty = max(0.0, equity * p.max_gross_pct - used) / sig.ref
-                qty = floor_qty(min(risk_qty, cap_qty, gross_qty))
+                qty = floor_qty(min(risk_qty, cap_qty, gross_qty), p.qty_step)
                 self.signals.append({"symbol": s, "time": _fmt(sig.t), "side": "long" if sig.side > 0 else "short",
                                      "pattern": sig.pattern, "ref": sig.ref, "stop": sig.stop, "target": sig.target,
                                      "qty": qty})
-                if qty >= 1:
+                if qty >= p.qty_step:
                     pending[s] = (sig, qty)
                 else:
                     self.skipped["size < 1 or budget used"] += 1

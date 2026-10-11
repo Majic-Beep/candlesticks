@@ -1,0 +1,623 @@
+{
+ "generated": "2026-10-11 20:27 UTC",
+ "cost_bps_per_side": 30.0,
+ "symbols": [
+  "AVAX/USD",
+  "BTC/USD",
+  "DOGE/USD",
+  "ETH/USD",
+  "LINK/USD",
+  "LTC/USD",
+  "SOL/USD"
+ ],
+ "start": {
+  "BTC/USD": "2021-01-01",
+  "ETH/USD": "2021-01-01",
+  "SOL/USD": "2024-08-26",
+  "DOGE/USD": "2021-01-01",
+  "LTC/USD": "2021-01-01",
+  "LINK/USD": "2021-01-01",
+  "AVAX/USD": "2021-11-18"
+ },
+ "variants": {
+  "v1": {
+   "label": "Variante 1 \u2013 Video-Regeln",
+   "summary": {
+    "start_equity": 50000.0,
+    "final_equity": 0.01,
+    "net_profit": -49999.99,
+    "total_return_pct": -100.0,
+    "cagr_pct": -89.65,
+    "max_drawdown_pct": -100.0,
+    "sharpe": -5.06,
+    "sortino": -5.35,
+    "trades": 12404,
+    "trading_days": 1714,
+    "win_rate_pct": 23.0,
+    "profit_factor": 0.64,
+    "avg_win": 30.74,
+    "avg_loss": -14.39,
+    "expectancy_r": -0.563,
+    "r_tstat": -41.04,
+    "best_trade": 575.88,
+    "worst_trade": -319.68,
+    "calmar": -0.9
+   },
+   "by_side": [
+    {
+     "key": "long",
+     "trades": 6090,
+     "pnl": -25300.45,
+     "win_rate_pct": 23.1,
+     "expectancy_r": -0.562
+    },
+    {
+     "key": "short",
+     "trades": 6314,
+     "pnl": -24698.45,
+     "win_rate_pct": 22.9,
+     "expectancy_r": -0.564
+    }
+   ],
+   "by_pattern": [
+    {
+     "key": "breakout",
+     "trades": 800,
+     "pnl": -1747.89,
+     "win_rate_pct": 22.2,
+     "expectancy_r": -0.413
+    },
+    {
+     "key": "engulfing",
+     "trades": 7057,
+     "pnl": -27550.47,
+     "win_rate_pct": 23.4,
+     "expectancy_r": -0.565
+    },
+    {
+     "key": "pin_bar",
+     "trades": 3150,
+     "pnl": -12189.41,
+     "win_rate_pct": 21.7,
+     "expectancy_r": -0.711
+    },
+    {
+     "key": "shrinking",
+     "trades": 163,
+     "pnl": -299.61,
+     "win_rate_pct": 23.3,
+     "expectancy_r": -0.321
+    },
+    {
+     "key": "three_bar_continuation",
+     "trades": 1037,
+     "pnl": -6291.06,
+     "win_rate_pct": 24.7,
+     "expectancy_r": -0.273
+    },
+    {
+     "key": "three_bar_reversal",
+     "trades": 197,
+     "pnl": -1920.46,
+     "win_rate_pct": 20.3,
+     "expectancy_r": -0.436
+    }
+   ],
+   "by_symbol": [
+    {
+     "key": "AVAX/USD",
+     "trades": 2591,
+     "pnl": -6047.11,
+     "win_rate_pct": 21.5,
+     "expectancy_r": -0.459
+    },
+    {
+     "key": "BTC/USD",
+     "trades": 1139,
+     "pnl": -11694.09,
+     "win_rate_pct": 31.4,
+     "expectancy_r": -0.875
+    },
+    {
+     "key": "DOGE/USD",
+     "trades": 1148,
+     "pnl": -4484.58,
+     "win_rate_pct": 19.8,
+     "expectancy_r": -0.266
+    },
+    {
+     "key": "ETH/USD",
+     "trades": 1665,
+     "pnl": -10292.2,
+     "win_rate_pct": 30.0,
+     "expectancy_r": -0.741
+    },
+    {
+     "key": "LINK/USD",
+     "trades": 2699,
+     "pnl": -9003.76,
+     "win_rate_pct": 21.8,
+     "expectancy_r": -0.509
+    },
+    {
+     "key": "LTC/USD",
+     "trades": 2401,
+     "pnl": -8475.79,
+     "win_rate_pct": 22.3,
+     "expectancy_r": -0.604
+    },
+    {
+     "key": "SOL/USD",
+     "trades": 761,
+     "pnl": -1.37,
+     "win_rate_pct": 11.0,
+     "expectancy_r": -0.567
+    }
+   ],
+   "by_year": [
+    {
+     "key": "2022",
+     "trades": 2799,
+     "pnl": -46504.54,
+     "win_rate_pct": 34.3,
+     "expectancy_r": -0.455
+    },
+    {
+     "key": "2023",
+     "trades": 2947,
+     "pnl": -3429.98,
+     "win_rate_pct": 30.0,
+     "expectancy_r": -0.742
+    },
+    {
+     "key": "2024",
+     "trades": 2860,
+     "pnl": -63.59,
+     "win_rate_pct": 30.1,
+     "expectancy_r": -0.531
+    },
+    {
+     "key": "2025",
+     "trades": 2618,
+     "pnl": -0.79,
+     "win_rate_pct": 5.5,
+     "expectancy_r": -0.5
+    },
+    {
+     "key": "2026",
+     "trades": 1180,
+     "pnl": 0.0,
+     "win_rate_pct": 0.0,
+     "expectancy_r": -0.589
+    }
+   ],
+   "by_exit": [
+    {
+     "key": "end_of_data",
+     "trades": 1,
+     "pnl": 0.0,
+     "win_rate_pct": 0.0,
+     "expectancy_r": -0.265
+    },
+    {
+     "key": "stop",
+     "trades": 7711,
+     "pnl": -133345.54,
+     "win_rate_pct": 0.0,
+     "expectancy_r": -1.627
+    },
+    {
+     "key": "target",
+     "trades": 3249,
+     "pnl": 80548.5,
+     "win_rate_pct": 73.0,
+     "expectancy_r": 1.679
+    },
+    {
+     "key": "time",
+     "trades": 1443,
+     "pnl": 2798.14,
+     "win_rate_pct": 33.0,
+     "expectancy_r": 0.076
+    }
+   ]
+  },
+  "v2": {
+   "label": "Variante 2 \u2013 Trendfilter, Ziel 1,5 R",
+   "summary": {
+    "start_equity": 50000.0,
+    "final_equity": 0.04,
+    "net_profit": -49999.96,
+    "total_return_pct": -100.0,
+    "cagr_pct": -87.31,
+    "max_drawdown_pct": -100.0,
+    "sharpe": -6.93,
+    "sortino": -6.93,
+    "trades": 11630,
+    "trading_days": 1714,
+    "win_rate_pct": 28.3,
+    "profit_factor": 0.59,
+    "avg_win": 22.22,
+    "avg_loss": -14.79,
+    "expectancy_r": -0.559,
+    "r_tstat": -42.55,
+    "best_trade": 582.18,
+    "worst_trade": -339.71,
+    "calmar": -0.87
+   },
+   "by_side": [
+    {
+     "key": "long",
+     "trades": 5642,
+     "pnl": -25103.26,
+     "win_rate_pct": 28.9,
+     "expectancy_r": -0.546
+    },
+    {
+     "key": "short",
+     "trades": 5988,
+     "pnl": -24896.58,
+     "win_rate_pct": 27.8,
+     "expectancy_r": -0.57
+    }
+   ],
+   "by_pattern": [
+    {
+     "key": "breakout",
+     "trades": 879,
+     "pnl": -3711.15,
+     "win_rate_pct": 28.6,
+     "expectancy_r": -0.321
+    },
+    {
+     "key": "engulfing",
+     "trades": 6487,
+     "pnl": -26198.54,
+     "win_rate_pct": 28.9,
+     "expectancy_r": -0.584
+    },
+    {
+     "key": "pin_bar",
+     "trades": 2766,
+     "pnl": -11315.74,
+     "win_rate_pct": 27.6,
+     "expectancy_r": -0.679
+    },
+    {
+     "key": "shrinking",
+     "trades": 132,
+     "pnl": -242.88,
+     "win_rate_pct": 27.3,
+     "expectancy_r": -0.432
+    },
+    {
+     "key": "three_bar_continuation",
+     "trades": 1167,
+     "pnl": -8190.53,
+     "win_rate_pct": 27.4,
+     "expectancy_r": -0.345
+    },
+    {
+     "key": "three_bar_reversal",
+     "trades": 199,
+     "pnl": -341.0,
+     "win_rate_pct": 27.1,
+     "expectancy_r": -0.433
+    }
+   ],
+   "by_symbol": [
+    {
+     "key": "AVAX/USD",
+     "trades": 2242,
+     "pnl": -7343.53,
+     "win_rate_pct": 29.4,
+     "expectancy_r": -0.42
+    },
+    {
+     "key": "BTC/USD",
+     "trades": 1135,
+     "pnl": -11207.18,
+     "win_rate_pct": 34.4,
+     "expectancy_r": -0.963
+    },
+    {
+     "key": "DOGE/USD",
+     "trades": 926,
+     "pnl": -4727.15,
+     "win_rate_pct": 28.4,
+     "expectancy_r": -0.205
+    },
+    {
+     "key": "ETH/USD",
+     "trades": 1695,
+     "pnl": -8507.18,
+     "win_rate_pct": 35.8,
+     "expectancy_r": -0.683
+    },
+    {
+     "key": "LINK/USD",
+     "trades": 2309,
+     "pnl": -8838.41,
+     "win_rate_pct": 28.1,
+     "expectancy_r": -0.463
+    },
+    {
+     "key": "LTC/USD",
+     "trades": 2337,
+     "pnl": -9372.83,
+     "win_rate_pct": 25.1,
+     "expectancy_r": -0.655
+    },
+    {
+     "key": "SOL/USD",
+     "trades": 986,
+     "pnl": -3.56,
+     "win_rate_pct": 14.5,
+     "expectancy_r": -0.522
+    }
+   ],
+   "by_year": [
+    {
+     "key": "2022",
+     "trades": 2423,
+     "pnl": -46003.94,
+     "win_rate_pct": 39.2,
+     "expectancy_r": -0.472
+    },
+    {
+     "key": "2023",
+     "trades": 2615,
+     "pnl": -3860.03,
+     "win_rate_pct": 36.2,
+     "expectancy_r": -0.728
+    },
+    {
+     "key": "2024",
+     "trades": 2528,
+     "pnl": -128.96,
+     "win_rate_pct": 38.1,
+     "expectancy_r": -0.492
+    },
+    {
+     "key": "2025",
+     "trades": 2472,
+     "pnl": -6.91,
+     "win_rate_pct": 17.7,
+     "expectancy_r": -0.515
+    },
+    {
+     "key": "2026",
+     "trades": 1592,
+     "pnl": 0.0,
+     "win_rate_pct": 0.0,
+     "expectancy_r": -0.585
+    }
+   ],
+   "by_exit": [
+    {
+     "key": "end_of_data",
+     "trades": 1,
+     "pnl": 0.0,
+     "win_rate_pct": 0.0,
+     "expectancy_r": 0.536
+    },
+    {
+     "key": "stop",
+     "trades": 6621,
+     "pnl": -119356.86,
+     "win_rate_pct": 0.0,
+     "expectancy_r": -1.666
+    },
+    {
+     "key": "target",
+     "trades": 3970,
+     "pnl": 70276.63,
+     "win_rate_pct": 75.7,
+     "expectancy_r": 1.163
+    },
+    {
+     "key": "time",
+     "trades": 1038,
+     "pnl": -919.61,
+     "win_rate_pct": 27.9,
+     "expectancy_r": -0.079
+    }
+   ]
+  },
+  "v3": {
+   "label": "Variante 3 \u2013 nur Long, Trendfilter, Mindest-Stop 0,5 ATR",
+   "summary": {
+    "start_equity": 50000.0,
+    "final_equity": 46.0,
+    "net_profit": -49954.0,
+    "total_return_pct": -99.91,
+    "cagr_pct": -64.22,
+    "max_drawdown_pct": -99.91,
+    "sharpe": -4.97,
+    "sortino": -5.79,
+    "trades": 6087,
+    "trading_days": 1714,
+    "win_rate_pct": 33.5,
+    "profit_factor": 0.58,
+    "avg_win": 33.28,
+    "avg_loss": -29.1,
+    "expectancy_r": -0.544,
+    "r_tstat": -27.24,
+    "best_trade": 500.2,
+    "worst_trade": -376.68,
+    "calmar": -0.64
+   },
+   "by_side": [
+    {
+     "key": "long",
+     "trades": 6087,
+     "pnl": -49954.08,
+     "win_rate_pct": 33.5,
+     "expectancy_r": -0.544
+    }
+   ],
+   "by_pattern": [
+    {
+     "key": "breakout",
+     "trades": 486,
+     "pnl": -2356.8,
+     "win_rate_pct": 33.1,
+     "expectancy_r": -0.412
+    },
+    {
+     "key": "engulfing",
+     "trades": 3463,
+     "pnl": -26381.88,
+     "win_rate_pct": 34.0,
+     "expectancy_r": -0.544
+    },
+    {
+     "key": "pin_bar",
+     "trades": 1271,
+     "pnl": -11078.48,
+     "win_rate_pct": 34.0,
+     "expectancy_r": -0.688
+    },
+    {
+     "key": "shrinking",
+     "trades": 69,
+     "pnl": -733.23,
+     "win_rate_pct": 31.9,
+     "expectancy_r": -0.478
+    },
+    {
+     "key": "three_bar_continuation",
+     "trades": 689,
+     "pnl": -7389.8,
+     "win_rate_pct": 30.3,
+     "expectancy_r": -0.388
+    },
+    {
+     "key": "three_bar_reversal",
+     "trades": 109,
+     "pnl": -2013.89,
+     "win_rate_pct": 33.0,
+     "expectancy_r": -0.448
+    }
+   ],
+   "by_symbol": [
+    {
+     "key": "AVAX/USD",
+     "trades": 955,
+     "pnl": -7130.63,
+     "win_rate_pct": 33.6,
+     "expectancy_r": -0.396
+    },
+    {
+     "key": "BTC/USD",
+     "trades": 1015,
+     "pnl": -9845.56,
+     "win_rate_pct": 33.7,
+     "expectancy_r": -0.813
+    },
+    {
+     "key": "DOGE/USD",
+     "trades": 499,
+     "pnl": -4047.94,
+     "win_rate_pct": 34.9,
+     "expectancy_r": -0.212
+    },
+    {
+     "key": "ETH/USD",
+     "trades": 1065,
+     "pnl": -10098.79,
+     "win_rate_pct": 34.5,
+     "expectancy_r": -0.657
+    },
+    {
+     "key": "LINK/USD",
+     "trades": 1039,
+     "pnl": -9216.95,
+     "win_rate_pct": 34.1,
+     "expectancy_r": -0.409
+    },
+    {
+     "key": "LTC/USD",
+     "trades": 1066,
+     "pnl": -9437.18,
+     "win_rate_pct": 31.1,
+     "expectancy_r": -0.63
+    },
+    {
+     "key": "SOL/USD",
+     "trades": 448,
+     "pnl": -177.03,
+     "win_rate_pct": 33.3,
+     "expectancy_r": -0.453
+    }
+   ],
+   "by_year": [
+    {
+     "key": "2022",
+     "trades": 1072,
+     "pnl": -37135.89,
+     "win_rate_pct": 31.8,
+     "expectancy_r": -0.549
+    },
+    {
+     "key": "2023",
+     "trades": 1205,
+     "pnl": -9358.1,
+     "win_rate_pct": 34.0,
+     "expectancy_r": -0.593
+    },
+    {
+     "key": "2024",
+     "trades": 1305,
+     "pnl": -2714.85,
+     "win_rate_pct": 35.0,
+     "expectancy_r": -0.483
+    },
+    {
+     "key": "2025",
+     "trades": 1441,
+     "pnl": -665.61,
+     "win_rate_pct": 31.4,
+     "expectancy_r": -0.558
+    },
+    {
+     "key": "2026",
+     "trades": 1064,
+     "pnl": -79.63,
+     "win_rate_pct": 35.5,
+     "expectancy_r": -0.537
+    }
+   ],
+   "by_exit": [
+    {
+     "key": "end_of_data",
+     "trades": 1,
+     "pnl": 0.12,
+     "win_rate_pct": 100.0,
+     "expectancy_r": 0.536
+    },
+    {
+     "key": "stop",
+     "trades": 3683,
+     "pnl": -113503.18,
+     "win_rate_pct": 0.0,
+     "expectancy_r": -1.674
+    },
+    {
+     "key": "target",
+     "trades": 1724,
+     "pnl": 62224.85,
+     "win_rate_pct": 98.7,
+     "expectancy_r": 1.631
+    },
+    {
+     "key": "time",
+     "trades": 679,
+     "pnl": 1324.13,
+     "win_rate_pct": 49.5,
+     "expectancy_r": 0.066
+    }
+   ]
+  }
+ }
+}

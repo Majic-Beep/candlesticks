@@ -206,5 +206,8 @@ class CandlePatterns:
         return best
 
 
-def floor_qty(x: float) -> int:
-    return max(0, int(math.floor(x + 1e-9)))
+def floor_qty(x: float, step: float = 1.0):
+    """Round a size down to whole units (`step` 1) or to multiples of a fractional `step` (crypto)."""
+    if step == 1.0:
+        return max(0, int(math.floor(x + 1e-9)))
+    return max(0.0, round(math.floor(x / step + 1e-9) * step, 10))

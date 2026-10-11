@@ -6,6 +6,8 @@
   run        [--dry-run]            live: after each 1h candle close - exits, then new entries
   sync                              live: read fills back -> results/live.json
   dashboard                         build docs/index.html from the results
+  crypto-download                   Alpaca crypto 1-hour bars since 2021 -> data/crypto_*.csv
+  crypto-backtest                   same strategy on crypto -> results/crypto/
 """
 from __future__ import annotations
 
@@ -17,7 +19,7 @@ from .config import UNIVERSE
 
 def main() -> None:
     ap = argparse.ArgumentParser(prog="candle_patterns")
-    ap.add_argument("command", choices=["download", "backtest", "variants", "run", "sync", "dashboard"])
+    ap.add_argument("command", choices=["download", "backtest", "variants", "run", "sync", "dashboard", "crypto-download", "crypto-backtest"])
     ap.add_argument("--start", default="2019-01-01")
     ap.add_argument("--symbols", default=",".join(UNIVERSE))
     ap.add_argument("--dry-run", action="store_true")
@@ -56,6 +58,20 @@ def main() -> None:
     elif a.command == "sync":
         from .live import cmd_sync
         cmd_sync()
+    elif a.command == "crypto-download":
+        from .crypto import download
+        download()
+    elif a.command == "crypto-backtest":
+        from .crypto import run_backtest
+        r = run_backtest()
+        for k in ("walk_forward", "holdout", "standard", "in_sample"):
+            s = r["walk_forward"][k]["summary"]
+            print(f"{k:13s} trades {s['trades']:5d}  return {s['total_return_pct']:7.2f}%  maxDD {s['max_drawdown_pct']:6.2f}%  "
+                  f"win {s['win_rate_pct']:5.1f}%  E[R] {s['expectancy_r']:+.3f}  t {s['r_tstat']:+.2f}")
+        for vid, v in r["variants"]["variants"].items():
+            s = v["summary"]
+            print(f"{vid} trades {s['trades']}  return {s['total_return_pct']:+.2f}%  maxDD {s['max_drawdown_pct']:.2f}%  "
+                  f"E[R] {s['expectancy_r']:+.3f}  t {s['r_tstat']:+.2f}")
     elif a.command == "dashboard":
         from .dashboard import build
         print(build())

@@ -64,6 +64,7 @@ class Params:
     risk_pct: float = 0.005         # equity risked per trade (entry to stop)
     max_position_pct: float = 0.25  # max notional of one position as share of equity
     max_gross_pct: float = 1.0      # all open positions together, as share of equity
+    qty_step: float = 1.0           # smallest tradable quantity: whole shares for stocks, fractions for crypto
 
     def to_dict(self) -> dict:
         d = asdict(self)

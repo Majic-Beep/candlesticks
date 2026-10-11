@@ -165,6 +165,33 @@ Vorteil etwa t ≥ 2,7. Auch V3 ist in den letzten Monaten negativ (−0,10 R, 2
 als reine Long-Strategie hängt sie am Markt. Darum läuft sie als dritte Variante im Paper-Trading, statt V1/V2
 zu ersetzen.
 
+## Krypto-Backtest (11. Oktober 2026)
+
+Dieselbe Strategie und Engine auf Alpaca-Krypto-Kerzen: BTC, ETH, SOL, DOGE, LTC, LINK, AVAX, 01/2021 – 10/2026,
+rund um die Uhr, Bruchteile erlaubt. Kosten 0,30 % pro Seite (Alpaca-Gebühr 0,25 % plus Spread). SOL hatte bei
+Alpaca 2023/24 eine Datenlücke und zählt erst danach. Ergebnisse in `results/crypto/`.
+
+| Test (ab 02/2022) | Kerzen | Kosten | Trades | Ø pro Trade | t |
+|---|---|---|---|---|---|
+| Video-Regeln (V1) | 1 h | 0,30 % | 12.404 | −0,563 R | −41,0 |
+| Video-Regeln (V1) | 1 h | keine | 15.100 | −0,051 R | −4,7 |
+| V3-Regeln (nur Long, Trend, Mindest-Stop) | 1 h | 0,30 % | 6.087 | −0,544 R | −27,2 |
+| V3-Regeln | 1 h | keine | 6.111 | −0,010 R | −0,6 |
+| Video-Regeln | 4 h | keine | 4.186 | −0,047 R | −2,3 |
+| V3-Regeln | 4 h | 0,30 % | 1.585 | −0,260 R | −7,3 |
+| Video-Regeln | 1 Tag | keine | 728 | +0,018 R | +0,5 |
+| V3-Regeln | 1 Tag | 0,30 % | 225 | −0,045 R | −0,6 |
+
+**Ergebnis:** Auf Krypto haben die Muster keinen Vorteil, auch nicht ohne Kosten und auf keinem Zeitrahmen. Mit
+realistischen Kosten verliert jede Variante massiv, weil der Stop auf dem 1-Stunden-Chart im Schnitt nur etwa 2 %
+entfernt ist und 0,6 % Kosten pro Runde damit rund ein Drittel des Risikos auffressen. Kein Paper-Trading für
+Krypto (Alpaca erlaubt dort ohnehin keine Shorts).
+
+```
+python -m candle_patterns crypto-download
+python -m candle_patterns crypto-backtest
+```
+
 ## Benutzung
 
 Python ≥ 3.10, nur Standardbibliothek. Alle Befehle im Hauptordner des Repos.
@@ -215,6 +242,7 @@ candle_patterns/engine.py      Event-Backtester mit konservativen Fills und Gesa
 candle_patterns/walkforward.py Walk-Forward, Hold-out, Referenzen, Raster-Varianten
 candle_patterns/variants.py    Backtest der eingefrorenen Live-Varianten
 candle_patterns/data.py        Alpaca-Kursdaten, CSV-Cache, 1-Stunden-Kerzen
+candle_patterns/crypto.py      Krypto-Backtest (Alpaca-Krypto-Kerzen, Kosten, Bruchteile)
 candle_patterns/alpaca.py      Alpaca-Paper-Client (verweigert Live-Konten)
 candle_patterns/live.py        Paper-Trading: run / sync, drei Varianten
 candle_patterns/dashboard.py   docs/index.html (Vorlage: dashboard_template.html)
