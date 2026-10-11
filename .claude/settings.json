@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -m candle_patterns run)",
+      "Bash(python3 -m candle_patterns sync)",
+      "Bash(python3 -m candle_patterns dashboard)"
+    ]
+  }
+}
