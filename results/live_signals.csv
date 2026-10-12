@@ -26,3 +26,5 @@ v1,2026-10-12 13:30,JPM,long,pin_bar,334.67,333.94,336.13,334.67,0,skipped: posi
 v1,2026-10-12 14:30,TLT,long,pin_bar,77.975,77.92,78.08,77.96,0,skipped: position already open,
 v1,2026-10-12 14:30,JPM,short,engulfing,334.305,334.84,333.24,334.67,0,skipped: position already open,
 v2,2026-10-12 14:30,TLT,long,pin_bar,77.975,77.92,78.06,77.91,0,skipped: position already open,
+v2,2026-10-12 15:30,AVGO,short,pin_bar,354.77,355.86,353.13,355.86,11,submitted,cdf9a3e0-cfc4-4088-898b-b1ff2d4cdf6d
+v1,2026-10-12 15:30,AVGO,short,pin_bar,354.77,355.86,352.59,355.86,0,skipped: size < 1 share or budget used up,
