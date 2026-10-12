@@ -1,0 +1,6 @@
+variant,time,symbol,side,pattern,ref,stop,target,level,qty,status,order_id
+v3,2026-10-12 09:30,XLF,long,breakout,55.055,54.55,56.07,54.55,75,submitted,c13aa7b3-f158-47cd-bfc1-7a1e39812136
+v2,2026-10-12 09:30,XLF,long,breakout,55.055,54.55,55.81,54.55,75,submitted,31b2fdaf-0373-4a81-bef7-7a30b182b88f
+v2,2026-10-12 09:30,SMH,short,breakout,590.2775,604.86,568.4,605.29,5,submitted,d0b9b3e1-10eb-49e4-8281-26a462d1d25d
+v1,2026-10-12 09:30,XLF,long,breakout,55.055,54.55,56.07,54.55,75,submitted,e099a6c1-e27b-4e23-91c6-0f097e0693e3
+v1,2026-10-12 09:30,SMH,short,breakout,590.2775,604.86,561.11,602.03,5,submitted,41c7a38d-bb50-4632-b132-0674f12df2a5
