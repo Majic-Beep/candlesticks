@@ -10,3 +10,6 @@ v2,2026-10-12 10:30,XLE,long,pin_bar,66,65.64,66.54,65.72,63,submitted,91118cad-
 v2,2026-10-12 10:30,JPM,long,pin_bar,335.02,334.07,336.44,333.79,12,submitted,d477174f-91b9-456d-a60c-033227e3505b
 v3,2026-10-12 10:30,XLE,long,pin_bar,66,65.64,66.72,65.72,63,submitted,df028e9a-b493-4e85-b9eb-7c07dbfdeb61
 v3,2026-10-12 10:30,JPM,long,pin_bar,335.02,334.07,336.92,334.67,12,submitted,a87fdf6c-0f24-4c1d-88f8-b21e371b257d
+v1,2026-10-12 11:30,XLF,short,engulfing,55.055,55.17,54.82,55.0805,75,skipped: position already open,
+v1,2026-10-12 11:30,SMH,long,engulfing,592.68,588.92,600.2,588.92,7,skipped: position already open,
+v1,2026-10-12 11:30,JPM,short,engulfing,334.215,335.21,332.22,334.67,12,submitted,61217feb-0130-4578-97b0-390574ca2a31
