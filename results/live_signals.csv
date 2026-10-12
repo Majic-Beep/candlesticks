@@ -20,3 +20,6 @@ v2,2026-10-12 12:30,TLT,long,engulfing,78.015,77.87,78.23,77.91,16,submitted,163
 v2,2026-10-12 12:30,COST,long,three_bar_continuation,959.3301,951.9,970.48,952.6,0,skipped: size < 1 share or budget used up,
 v3,2026-10-12 12:30,TLT,long,engulfing,78.015,77.87,78.3,77.91,53,submitted,ef250504-1ef7-4ca2-9ead-b1a264d246f8
 v3,2026-10-12 12:30,COST,long,three_bar_continuation,959.3301,951.9,974.19,952.6,4,submitted,b75b6c6c-093a-4401-a916-40cbcf835fd5
+v3,2026-10-12 13:30,JPM,long,pin_bar,334.67,333.94,336.13,334.67,1,skipped: other variant holds the opposite side,
+v2,2026-10-12 13:30,JPM,long,pin_bar,334.67,333.94,335.77,333.79,0,skipped: other variant holds the opposite side,
+v1,2026-10-12 13:30,JPM,long,pin_bar,334.67,333.94,336.13,334.67,0,skipped: position already open,
