@@ -13,3 +13,10 @@ v3,2026-10-12 10:30,JPM,long,pin_bar,335.02,334.07,336.92,334.67,12,submitted,a8
 v1,2026-10-12 11:30,XLF,short,engulfing,55.055,55.17,54.82,55.0805,75,skipped: position already open,
 v1,2026-10-12 11:30,SMH,long,engulfing,592.68,588.92,600.2,588.92,7,skipped: position already open,
 v1,2026-10-12 11:30,JPM,short,engulfing,334.215,335.21,332.22,334.67,12,submitted,61217feb-0130-4578-97b0-390574ca2a31
+v1,2026-10-12 12:30,TLT,long,engulfing,78.015,77.87,78.3,77.91,18,submitted,4bd8b922-c89f-44b4-b4d5-4fb0476280dc
+v1,2026-10-12 12:30,COST,long,three_bar_continuation,959.3301,951.9,974.19,952.6,0,skipped: size < 1 share or budget used up,
+v2,2026-10-12 12:30,XLV,long,engulfing,171.48,171.12,172.02,171.02,24,submitted,c2255135-67f8-495a-9c94-4fd613dbee7d
+v2,2026-10-12 12:30,TLT,long,engulfing,78.015,77.87,78.23,77.91,16,submitted,1634fa00-18e9-42a5-bf79-d9f0a4ae797d
+v2,2026-10-12 12:30,COST,long,three_bar_continuation,959.3301,951.9,970.48,952.6,0,skipped: size < 1 share or budget used up,
+v3,2026-10-12 12:30,TLT,long,engulfing,78.015,77.87,78.3,77.91,53,submitted,ef250504-1ef7-4ca2-9ead-b1a264d246f8
+v3,2026-10-12 12:30,COST,long,three_bar_continuation,959.3301,951.9,974.19,952.6,4,submitted,b75b6c6c-093a-4401-a916-40cbcf835fd5
