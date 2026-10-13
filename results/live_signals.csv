@@ -42,3 +42,5 @@ v2,2026-10-13 13:30,NFLX,long,engulfing,70.8858,70.52,71.43,70.56,58,submitted,c
 v1,2026-10-13 13:30,GLD,long,shrinking,381.255,380.03,383.71,380.18,0,skipped: position already open,
 v1,2026-10-13 13:30,AVGO,long,engulfing,358.155,354.92,364.62,355.86,0,skipped: position already open,
 v1,2026-10-13 13:30,NFLX,long,engulfing,70.8858,70.52,71.62,70.56,3,submitted,b1ad9965-2623-4272-8321-3dd72c9d6918
+v1,2026-10-13 14:30,JPM,short,pin_bar,333.9,335.43,330.84,335.31,0,skipped: size < 1 share or budget used up,
+v1,2026-10-13 14:30,AVGO,long,pin_bar,358.3,355.73,363.44,355.86,0,skipped: position already open,
