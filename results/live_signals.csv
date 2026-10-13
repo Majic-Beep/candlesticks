@@ -35,3 +35,10 @@ v1,2026-10-13 09:30,LLY,short,engulfing,1178.055,1193.73,1146.71,1192.94,0,skipp
 v1,2026-10-13 11:30,XLF,short,engulfing,54.96,55.24,54.4,55.24,4,skipped: position already open,
 v1,2026-10-13 11:30,JPM,short,engulfing,335.01,339.48,326.07,337.69,0,skipped: size < 1 share or budget used up,
 v1,2026-10-13 11:30,AVGO,long,engulfing,356.138,352.5,363.41,352.92,0,skipped: position already open,
+v3,2026-10-13 13:30,GLD,long,shrinking,381.255,380.03,383.71,380.18,10,skipped: other variant holds the opposite side,
+v3,2026-10-13 13:30,NFLX,long,engulfing,70.8858,70.52,71.62,70.56,58,submitted,199d5abf-6da4-4f46-a7d7-15d40a6f8b70
+v2,2026-10-13 13:30,GLD,long,shrinking,381.255,380.03,383.09,380.18,10,skipped: other variant holds the opposite side,
+v2,2026-10-13 13:30,NFLX,long,engulfing,70.8858,70.52,71.43,70.56,58,submitted,cb17cd2f-debe-45bb-bc07-da463bcb3561
+v1,2026-10-13 13:30,GLD,long,shrinking,381.255,380.03,383.71,380.18,0,skipped: position already open,
+v1,2026-10-13 13:30,AVGO,long,engulfing,358.155,354.92,364.62,355.86,0,skipped: position already open,
+v1,2026-10-13 13:30,NFLX,long,engulfing,70.8858,70.52,71.62,70.56,3,submitted,b1ad9965-2623-4272-8321-3dd72c9d6918
