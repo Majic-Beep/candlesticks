@@ -46,3 +46,6 @@ v1,2026-10-13 14:30,JPM,short,pin_bar,333.9,335.43,330.84,335.31,0,skipped: size
 v1,2026-10-13 14:30,AVGO,long,pin_bar,358.3,355.73,363.44,355.86,0,skipped: position already open,
 v2,2026-10-13 15:30,AVGO,short,engulfing,357.42,359.4,354.45,357.9,11,skipped: other variant holds the opposite side,
 v1,2026-10-13 15:30,AVGO,short,engulfing,357.42,359.4,353.46,357.9,0,skipped: position already open,
+v3,2026-10-14 09:30,XOM,long,breakout,175.53,173.43,179.73,174.89,23,submitted,ec4cab8a-db9e-4e68-8f0c-bb101c2c86d0
+v2,2026-10-14 09:30,XOM,long,breakout,175.53,173.43,178.68,174.89,23,submitted,56c259f6-b778-47d2-bb3e-d5506b11e460
+v1,2026-10-14 09:30,XOM,long,breakout,175.53,173.43,179.73,174.89,23,submitted,81a599e7-fbf5-4973-b3ed-ce4426e59f72
