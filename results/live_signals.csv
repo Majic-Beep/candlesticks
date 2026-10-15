@@ -65,3 +65,4 @@ v2,2026-10-15 11:30,AVGO,short,engulfing,337.96,342.54,331.09,343.29,12,submitte
 v1,2026-10-15 12:30,JPM,short,pin_bar,333.775,335.01,331.3,334.67,12,skipped: other variant holds the opposite side,
 v2,2026-10-15 13:30,JPM,long,pin_bar,334.4032,333.46,335.82,333.62,9,skipped: position already open,
 v1,2026-10-15 13:30,JPM,long,pin_bar,334.4032,333.46,336.29,333.62,12,submitted,49187bb3-e78d-49a2-afa6-4b4615cc4ff2
+v1,2026-10-15 14:30,NFLX,short,pin_bar,72.705,73.03,72.05,73.04,42,submitted,907a5638-96f8-48ce-81be-908378fa9851
