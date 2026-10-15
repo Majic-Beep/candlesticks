@@ -66,3 +66,12 @@ v1,2026-10-15 12:30,JPM,short,pin_bar,333.775,335.01,331.3,334.67,12,skipped: ot
 v2,2026-10-15 13:30,JPM,long,pin_bar,334.4032,333.46,335.82,333.62,9,skipped: position already open,
 v1,2026-10-15 13:30,JPM,long,pin_bar,334.4032,333.46,336.29,333.62,12,submitted,49187bb3-e78d-49a2-afa6-4b4615cc4ff2
 v1,2026-10-15 14:30,NFLX,short,pin_bar,72.705,73.03,72.05,73.04,42,submitted,907a5638-96f8-48ce-81be-908378fa9851
+v3,2026-10-15 15:30,XLE,long,engulfing,66.55,66.15,67.35,66.42,62,skipped: other variant holds the opposite side,
+v3,2026-10-15 15:30,GLD,long,breakout,382.71,379.92,388.29,379.88,10,submitted,41e81721-2b5b-466f-bf6e-cfa67bd1494b
+v2,2026-10-15 15:30,XLE,long,engulfing,66.55,66.15,67.15,66.42,62,skipped: other variant holds the opposite side,
+v2,2026-10-15 15:30,GLD,long,breakout,382.71,379.92,386.89,379.88,10,submitted,c7ca28ff-7529-4c5f-a7f5-d8a2c2ac73b7
+v2,2026-10-15 15:30,JPM,long,pin_bar,335.54,334.41,337.24,334.67,10,skipped: position already open,
+v1,2026-10-15 15:30,XLF,short,engulfing,55.24,55.38,54.96,55.26,0,skipped: size < 1 share or budget used up,
+v1,2026-10-15 15:30,XLE,long,engulfing,66.55,66.15,67.35,66.42,0,skipped: position already open,
+v1,2026-10-15 15:30,GLD,long,breakout,382.71,379.92,388.29,379.88,0,skipped: size < 1 share or budget used up,
+v1,2026-10-15 15:30,JPM,long,pin_bar,335.54,334.41,337.8,334.67,0,skipped: position already open,
