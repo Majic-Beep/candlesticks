@@ -56,3 +56,8 @@ v1,2026-10-14 14:30,AVGO,long,pin_bar,345.61,342.64,351.55,343.29,4,submitted,2c
 v1,2026-10-14 14:30,LLY,short,pin_bar,1210.07,1215.42,1199.37,1215,0,skipped: size < 1 share or budget used up,
 v2,2026-10-14 15:30,LLY,long,engulfing,1211.57,1205.84,1220.16,1206.63,3,submitted,a664d245-4637-471c-92b8-fa1dcdb136e3
 v1,2026-10-14 15:30,LLY,long,engulfing,1211.57,1205.84,1223.03,1206.63,0,skipped: size < 1 share or budget used up,
+v3,2026-10-15 09:30,LLY,long,breakout,1264.435,1205.72,1381.86,1206.63,1,submitted,dce47937-8bcb-448b-81e1-946191307fe9
+v2,2026-10-15 09:30,LLY,long,breakout,1264.435,1205.72,1352.51,1206.63,1,submitted,b156c597-0774-4b6b-ab0c-ca4187940539
+v1,2026-10-15 09:30,XLE,short,engulfing,66.66,67.92,64.14,67.718,62,submitted,6bee652e-7338-474e-988c-803c9c39b12d
+v1,2026-10-15 09:30,JPM,short,engulfing,334.095,337.4,327.49,337.07,12,skipped: other variant holds the opposite side,
+v1,2026-10-15 09:30,LLY,long,breakout,1264.435,1205.72,1381.86,1206.63,1,submitted,ee08d6b3-27e9-4801-8baf-a5385ee4155f
