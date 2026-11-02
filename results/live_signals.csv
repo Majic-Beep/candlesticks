@@ -75,3 +75,10 @@ v1,2026-10-15 15:30,XLF,short,engulfing,55.24,55.38,54.96,55.26,0,skipped: size 
 v1,2026-10-15 15:30,XLE,long,engulfing,66.55,66.15,67.35,66.42,0,skipped: position already open,
 v1,2026-10-15 15:30,GLD,long,breakout,382.71,379.92,388.29,379.88,0,skipped: size < 1 share or budget used up,
 v1,2026-10-15 15:30,JPM,long,pin_bar,335.54,334.41,337.8,334.67,0,skipped: position already open,
+v3,2026-11-02 12:30,LLY,long,engulfing,1412.63,1381.09,1475.71,1408.38,2,submitted,9cff9216-bea8-4fd1-aa8f-7f4a5bbd0f61
+v2,2026-11-02 12:30,AVGO,short,engulfing,329.215,331.66,325.55,330.8001,12,submitted,3df62b5c-4ffa-4945-95b7-8cd8f655496d
+v2,2026-11-02 12:30,LLY,long,engulfing,1412.63,1381.09,1459.94,1408.38,2,submitted,cea9e96e-a527-40be-8fff-336a9e1df2c9
+v2,2026-11-02 12:30,XOM,short,engulfing,180.53,182.66,177.34,181.52,23,submitted,40550291-6e17-4f3f-8829-465d54e8fbb6
+v1,2026-11-02 12:30,AVGO,short,engulfing,329.215,331.66,324.32,330.8001,12,submitted,e47acd06-6561-45b7-a1ae-defc1ad917eb
+v1,2026-11-02 12:30,LLY,long,engulfing,1412.63,1381.09,1475.71,1408.38,2,submitted,45986490-be1e-41ac-a86c-0f96549a4bc2
+v1,2026-11-02 12:30,XOM,short,engulfing,180.53,182.66,176.27,181.52,23,submitted,39c10528-5ffa-4a87-af4e-efa954ba5b72
