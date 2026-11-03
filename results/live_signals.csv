@@ -105,3 +105,8 @@ v1,2026-11-03 11:30,XLV,short,engulfing,184.825,185.67,183.13,184.85,0,skipped: 
 v1,2026-11-03 11:30,TLT,short,engulfing,81.085,81.41,80.43,81.42,0,skipped: position already open,
 v2,2026-11-03 11:30,TLT,short,engulfing,81.085,81.41,80.6,81.42,52,submitted,7f683628-a359-4c15-8d27-15d648e12522
 v1,2026-11-03 12:30,JPM,long,engulfing,337.855,335.72,342.12,336.2,0,skipped: position already open,
+v1,2026-11-03 13:30,XLV,short,engulfing,184.71,185.16,183.81,184.85,0,skipped: position already open,
+v1,2026-11-03 13:30,TLT,long,engulfing,81.195,81.0,81.58,81.01,0,skipped: position already open,
+v1,2026-11-03 13:30,COST,long,engulfing,1025.25,1019.91,1035.93,1019.94,0,skipped: size < 1 share or budget used up,
+v2,2026-11-03 13:30,COST,long,engulfing,1025.25,1019.91,1033.26,1019.94,4,submitted,88785c48-cac3-4df0-ac69-9a88eedbf413
+v3,2026-11-03 13:30,COST,long,engulfing,1025.25,1019.91,1035.93,1019.94,4,submitted,1e003a19-3c5d-4889-9868-46bf966cc48c
