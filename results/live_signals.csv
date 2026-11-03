@@ -92,3 +92,10 @@ v1,2026-11-02 14:30,NFLX,short,engulfing,62.34,62.92,61.18,62.8635,19,submitted,
 v1,2026-11-02 14:30,XOM,short,pin_bar,180.4,181.03,179.14,180.94,0,skipped: position already open,
 v1,2026-11-02 15:30,SMH,short,pin_bar,508.07,524.94,474.33,520.53,0,skipped: size < 1 share or budget used up,
 v2,2026-11-02 15:30,SMH,short,pin_bar,508.07,524.94,482.76,525.72,2,submitted,2293f48a-80ee-48e1-a556-168574d2ae7b
+v1,2026-11-03 09:30,XLV,long,engulfing,185.16,183.57,188.34,184.85,23,submitted,37171ef2-014d-4ed9-8a4c-adee4b0ce273
+v1,2026-11-03 09:30,JPM,short,breakout,338.21,342.5,329.63,342.43,3,submitted,73d264cb-05d1-429f-b1be-53e663d9b216
+v1,2026-11-03 09:30,LLY,long,engulfing,1422,1392.61,1480.78,1408.38,0,skipped: position already open,
+v2,2026-11-03 09:30,XLV,long,engulfing,185.16,183.57,187.55,184.85,22,submitted,696e239e-61a9-42c7-997c-1ca3ca157b25
+v2,2026-11-03 09:30,LLY,long,engulfing,1422,1392.61,1466.09,1408.38,2,skipped: position already open,
+v3,2026-11-03 09:30,XLV,long,engulfing,185.16,183.57,188.34,184.85,22,submitted,bfd8883a-8c9a-4ca9-81ce-34026ebd4fa3
+v3,2026-11-03 09:30,LLY,long,engulfing,1422,1392.61,1480.78,1408.38,2,skipped: position already open,
