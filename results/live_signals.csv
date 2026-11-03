@@ -110,3 +110,4 @@ v1,2026-11-03 13:30,TLT,long,engulfing,81.195,81.0,81.58,81.01,0,skipped: positi
 v1,2026-11-03 13:30,COST,long,engulfing,1025.25,1019.91,1035.93,1019.94,0,skipped: size < 1 share or budget used up,
 v2,2026-11-03 13:30,COST,long,engulfing,1025.25,1019.91,1033.26,1019.94,4,submitted,88785c48-cac3-4df0-ac69-9a88eedbf413
 v3,2026-11-03 13:30,COST,long,engulfing,1025.25,1019.91,1035.93,1019.94,4,submitted,1e003a19-3c5d-4889-9868-46bf966cc48c
+v1,2026-11-03 14:30,AVGO,long,engulfing,332.38,330.69,335.76,330.8001,0,skipped: size < 1 share or budget used up,
