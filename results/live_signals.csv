@@ -104,3 +104,4 @@ v1,2026-11-03 11:30,XLF,short,engulfing,57.195,57.43,56.73,57.23,3,submitted,30f
 v1,2026-11-03 11:30,XLV,short,engulfing,184.825,185.67,183.13,184.85,0,skipped: position already open,
 v1,2026-11-03 11:30,TLT,short,engulfing,81.085,81.41,80.43,81.42,0,skipped: position already open,
 v2,2026-11-03 11:30,TLT,short,engulfing,81.085,81.41,80.6,81.42,52,submitted,7f683628-a359-4c15-8d27-15d648e12522
+v1,2026-11-03 12:30,JPM,long,engulfing,337.855,335.72,342.12,336.2,0,skipped: position already open,
