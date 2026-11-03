@@ -100,3 +100,7 @@ v2,2026-11-03 09:30,LLY,long,engulfing,1422,1392.61,1466.09,1408.38,2,skipped: p
 v3,2026-11-03 09:30,XLV,long,engulfing,185.16,183.57,188.34,184.85,22,submitted,bfd8883a-8c9a-4ca9-81ce-34026ebd4fa3
 v3,2026-11-03 09:30,LLY,long,engulfing,1422,1392.61,1480.78,1408.38,2,skipped: position already open,
 v2,2026-11-03 10:30,SMH,short,pin_bar,520.86,525.1,514.5,525.72,8,skipped: position already open,
+v1,2026-11-03 11:30,XLF,short,engulfing,57.195,57.43,56.73,57.23,3,submitted,30f27555-b71f-430e-ae95-7c560eec0737
+v1,2026-11-03 11:30,XLV,short,engulfing,184.825,185.67,183.13,184.85,0,skipped: position already open,
+v1,2026-11-03 11:30,TLT,short,engulfing,81.085,81.41,80.43,81.42,0,skipped: position already open,
+v2,2026-11-03 11:30,TLT,short,engulfing,81.085,81.41,80.6,81.42,52,submitted,7f683628-a359-4c15-8d27-15d648e12522
