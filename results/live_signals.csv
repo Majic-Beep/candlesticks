@@ -131,3 +131,4 @@ v2,2026-11-04 10:30,AVGO,short,engulfing,325.7849,334.33,312.97,334.61,7,submitt
 v1,2026-11-04 10:30,XLV,long,engulfing,188.14,185.27,193.88,185.72,22,submitted,64a27ce9-8050-4da6-a870-12a1e62ed557
 v1,2026-11-04 10:30,JPM,long,engulfing,349.57,342.09,364.53,342.43,8,submitted,7f1c78a9-d769-4022-b0ba-604c05a8dca8
 v1,2026-11-04 10:30,AVGO,short,engulfing,325.7849,334.33,308.69,333.5599,0,skipped: size < 1 share or budget used up,
+v1,2026-11-04 12:30,LLY,short,engulfing,1420.08,1436.81,1386.62,1437,0,skipped: position already open,
