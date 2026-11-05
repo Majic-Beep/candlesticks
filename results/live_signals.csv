@@ -140,3 +140,6 @@ v1,2026-11-05 09:30,LLY,long,breakout,1440.45,1415.4,1490.55,1437,0,skipped: pos
 v2,2026-11-05 09:30,LLY,long,breakout,1440.45,1415.4,1478.03,1437,2,skipped: position already open,
 v3,2026-11-05 09:30,LLY,long,breakout,1440.45,1415.4,1490.55,1437,2,skipped: position already open,
 v1,2026-11-05 13:30,LLY,short,engulfing,1386.51,1398.95,1361.63,1393.47,3,submitted,da93d2c9-cb86-4261-8076-c9013f3d104c
+v1,2026-11-05 15:30,NFLX,long,engulfing,65.54,64.63,67.36,65.02,65,submitted,fcb6d5d9-0e6a-4f18-bb56-31c1ffbc730c
+v2,2026-11-05 15:30,NFLX,long,engulfing,65.54,64.63,66.91,65.02,64,submitted,79e6b8e6-bc8b-422e-8441-026c430478ee
+v3,2026-11-05 15:30,NFLX,long,engulfing,65.54,64.63,67.36,65.02,64,submitted,21c9b258-741a-4bdd-86e9-7c8f82e37df4
