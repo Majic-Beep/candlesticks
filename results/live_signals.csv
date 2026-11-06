@@ -151,3 +151,5 @@ v2,2026-11-06 12:30,GLD,long,engulfing,372.6199,371.38,374.48,372.59,11,submitte
 v2,2026-11-06 12:30,JPM,short,engulfing,336.675,338.9,333.34,337.52,12,submitted,7f36649e-d6ad-4866-bc66-bcc0cedbf227
 v1,2026-11-06 12:30,GLD,long,engulfing,372.6199,371.38,375.1,372.59,11,submitted,ad7dce4d-93ca-4ed9-805b-c3e655919497
 v1,2026-11-06 12:30,JPM,short,engulfing,336.675,338.9,332.23,337.52,12,submitted,1999bb60-8ffd-4a16-80e1-f922d61827c9
+v1,2026-11-06 13:30,GLD,short,pin_bar,372.47,373.87,369.67,373.6,4,skipped: position already open,
+v1,2026-11-06 13:30,TLT,short,engulfing,82.03,82.43,81.23,82.21,22,submitted,f36342e1-5132-42b2-b5fe-6c9818476c5b
