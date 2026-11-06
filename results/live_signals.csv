@@ -153,3 +153,4 @@ v1,2026-11-06 12:30,GLD,long,engulfing,372.6199,371.38,375.1,372.59,11,submitted
 v1,2026-11-06 12:30,JPM,short,engulfing,336.675,338.9,332.23,337.52,12,submitted,1999bb60-8ffd-4a16-80e1-f922d61827c9
 v1,2026-11-06 13:30,GLD,short,pin_bar,372.47,373.87,369.67,373.6,4,skipped: position already open,
 v1,2026-11-06 13:30,TLT,short,engulfing,82.03,82.43,81.23,82.21,22,submitted,f36342e1-5132-42b2-b5fe-6c9818476c5b
+v1,2026-11-06 14:30,NFLX,short,engulfing,63.64,63.96,63.0,63.97,0,skipped: size < 1 share or budget used up,
