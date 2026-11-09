@@ -163,3 +163,7 @@ v1,2026-11-09 09:30,NFLX,long,engulfing,63.7,62.92,65.26,63.0201,67,submitted,1e
 v1,2026-11-09 09:30,COST,short,pin_bar,1046.815,1055.05,1030.35,1053.6599,3,submitted,5bbab547-0b70-47b7-9726-9a9abf2c9745
 v2,2026-11-09 09:30,NFLX,long,engulfing,63.7,62.92,64.87,63.0201,66,submitted,3e9241cd-20dc-4931-9681-8b138aa64ce3
 v3,2026-11-09 09:30,NFLX,long,engulfing,63.7,62.92,65.26,63.0201,65,submitted,20449f83-493f-4e95-a831-603a279396cc
+v3,2026-11-09 10:30,XLF,long,engulfing,57.945,57.24,59.35,57.23,72,submitted,85512be6-bcb5-4ef2-a8e8-ad6bb4d5d297
+v2,2026-11-09 10:30,XLF,long,engulfing,57.945,57.24,59.0,57.23,73,submitted,dbde8832-ea86-4330-abb2-8b3f7d01121b
+v1,2026-11-09 10:30,XLF,long,engulfing,57.945,57.24,59.35,57.23,0,skipped: size < 1 share or budget used up,
+v1,2026-11-09 10:30,GLD,short,pin_bar,376.92,378.6,373.56,377.26,0,skipped: size < 1 share or budget used up,
