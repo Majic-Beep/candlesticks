@@ -167,3 +167,8 @@ v3,2026-11-09 10:30,XLF,long,engulfing,57.945,57.24,59.35,57.23,72,submitted,855
 v2,2026-11-09 10:30,XLF,long,engulfing,57.945,57.24,59.0,57.23,73,submitted,dbde8832-ea86-4330-abb2-8b3f7d01121b
 v1,2026-11-09 10:30,XLF,long,engulfing,57.945,57.24,59.35,57.23,0,skipped: size < 1 share or budget used up,
 v1,2026-11-09 10:30,GLD,short,pin_bar,376.92,378.6,373.56,377.26,0,skipped: size < 1 share or budget used up,
+v1,2026-11-09 11:30,JPM,long,pin_bar,342.4,341.05,345.1,341.01,9,skipped: position already open,
+v1,2026-11-09 11:30,NFLX,long,engulfing,63.805,63.43,64.56,63.4596,49,skipped: position already open,
+v2,2026-11-09 11:30,JPM,long,pin_bar,342.4,341.05,344.42,341.01,12,submitted,4e3de878-7225-4b0e-aad8-e34f624cc6db
+v2,2026-11-09 11:30,NFLX,long,engulfing,63.805,63.43,64.37,63.4596,26,skipped: position already open,
+v3,2026-11-09 11:30,NFLX,long,engulfing,63.805,63.43,64.56,63.4596,65,skipped: position already open,
