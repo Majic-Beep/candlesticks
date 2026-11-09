@@ -172,3 +172,4 @@ v1,2026-11-09 11:30,NFLX,long,engulfing,63.805,63.43,64.56,63.4596,49,skipped: p
 v2,2026-11-09 11:30,JPM,long,pin_bar,342.4,341.05,344.42,341.01,12,submitted,4e3de878-7225-4b0e-aad8-e34f624cc6db
 v2,2026-11-09 11:30,NFLX,long,engulfing,63.805,63.43,64.37,63.4596,26,skipped: position already open,
 v3,2026-11-09 11:30,NFLX,long,engulfing,63.805,63.43,64.56,63.4596,65,skipped: position already open,
+v1,2026-11-09 13:30,JPM,short,engulfing,341.9,343.54,338.62,342.43,9,skipped: position already open,
