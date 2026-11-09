@@ -157,3 +157,9 @@ v1,2026-11-06 14:30,NFLX,short,engulfing,63.64,63.96,63.0,63.97,0,skipped: size 
 v1,2026-11-06 15:30,XLV,short,pin_bar,184.76,185.35,183.58,184.85,0,skipped: position already open,
 v1,2026-11-06 15:30,COST,short,pin_bar,1053.49,1058.07,1044.33,1053.6599,0,skipped: size < 1 share or budget used up,
 v2,2026-11-06 15:30,XLV,short,pin_bar,184.76,185.35,183.88,184.85,11,skipped: position already open,
+v1,2026-11-09 09:30,JPM,long,pin_bar,339.035,334.83,347.45,335.12,12,submitted,3beb8fb2-fe0a-4917-9e1e-89ba2e01d153
+v1,2026-11-09 09:30,AVGO,long,breakout,316.64,289.98,369.96,290.12,3,submitted,3c5639f5-0ccb-4f18-b2fb-316752bac09d
+v1,2026-11-09 09:30,NFLX,long,engulfing,63.7,62.92,65.26,63.0201,67,submitted,1e024e1c-cc23-440f-8bab-771d2da08fc6
+v1,2026-11-09 09:30,COST,short,pin_bar,1046.815,1055.05,1030.35,1053.6599,3,submitted,5bbab547-0b70-47b7-9726-9a9abf2c9745
+v2,2026-11-09 09:30,NFLX,long,engulfing,63.7,62.92,64.87,63.0201,66,submitted,3e9241cd-20dc-4931-9681-8b138aa64ce3
+v3,2026-11-09 09:30,NFLX,long,engulfing,63.7,62.92,65.26,63.0201,65,submitted,20449f83-493f-4e95-a831-603a279396cc
