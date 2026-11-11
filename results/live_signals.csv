@@ -198,3 +198,6 @@ v3,2026-11-10 11:30,XLV,long,engulfing,188.06,186.66,190.86,187.99,20,submitted,
 v3,2026-11-10 11:30,LLY,long,engulfing,1421.3896,1407.88,1448.41,1408.38,0,skipped: position already open,
 v1,2026-11-10 13:30,NFLX,long,engulfing,62.885,62.58,63.49,62.62,0,skipped: position already open,
 v1,2026-11-10 15:30,JPM,short,pin_bar,342.11,343.31,339.71,342.43,0,skipped: position already open,
+v1,2026-11-11 09:30,SMH,long,pin_bar,505.22,495.62,524.42,497.33,6,submitted,23ce3df8-4f6f-423d-b19d-d1b296675058
+v2,2026-11-11 09:30,SMH,long,pin_bar,505.22,495.62,519.62,497.33,8,submitted,4e783235-3a43-4f92-a647-5c94c7394334
+v3,2026-11-11 09:30,SMH,long,pin_bar,505.22,495.62,524.42,497.33,8,submitted,ee8a0002-3be5-4d13-a901-ad05e37d272a
