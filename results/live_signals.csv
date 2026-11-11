@@ -203,3 +203,4 @@ v2,2026-11-11 09:30,SMH,long,pin_bar,505.22,495.62,519.62,497.33,8,submitted,4e7
 v3,2026-11-11 09:30,SMH,long,pin_bar,505.22,495.62,524.42,497.33,8,submitted,ee8a0002-3be5-4d13-a901-ad05e37d272a
 v2,2026-11-11 12:30,GLD,short,engulfing,365.77,367.22,363.59,367.32,4,submitted,45cb1f5f-f379-47df-9c0c-fa089fd125a7
 v1,2026-11-11 12:30,GLD,short,engulfing,365.77,367.22,362.87,367.32,0,skipped: size < 1 share or budget used up,
+v1,2026-11-11 13:30,SMH,short,shrinking,511.165,517.04,499.42,511.63,0,skipped: position already open,
