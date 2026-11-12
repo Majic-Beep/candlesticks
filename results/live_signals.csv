@@ -204,3 +204,14 @@ v3,2026-11-11 09:30,SMH,long,pin_bar,505.22,495.62,524.42,497.33,8,submitted,ee8
 v2,2026-11-11 12:30,GLD,short,engulfing,365.77,367.22,363.59,367.32,4,submitted,45cb1f5f-f379-47df-9c0c-fa089fd125a7
 v1,2026-11-11 12:30,GLD,short,engulfing,365.77,367.22,362.87,367.32,0,skipped: size < 1 share or budget used up,
 v1,2026-11-11 13:30,SMH,short,shrinking,511.165,517.04,499.42,511.63,0,skipped: position already open,
+v1,2026-11-12 09:30,XLV,short,engulfing,188.535,190.7,184.21,189.2,16,skipped: other variant holds the opposite side,
+v1,2026-11-12 09:30,SMH,long,shrinking,497.66,484.11,524.76,488.46,6,submitted,8cd70ad7-4edb-44e7-bb7b-9491c5dbd36f
+v1,2026-11-12 09:30,GLD,short,breakout,353.6399,366.16,328.6,365.535,0,skipped: size < 1 share or budget used up,
+v1,2026-11-12 09:30,TLT,short,breakout,80.3263,80.97,79.04,80.95,1,skipped: position already open,
+v1,2026-11-12 09:30,AVGO,long,shrinking,361.53,343.98,396.63,344.7,0,skipped: position already open,
+v2,2026-11-12 09:30,SMH,long,shrinking,497.66,484.11,517.99,488.46,6,submitted,4de00ef7-cb08-4c2f-8a13-801f4b1eb372
+v2,2026-11-12 09:30,GLD,short,breakout,353.6399,366.16,334.86,365.535,6,submitted,c46e5e92-56b7-45f6-bb1b-0b028bf7e8b1
+v2,2026-11-12 09:30,TLT,short,breakout,80.3263,80.97,79.36,80.95,26,skipped: position already open,
+v2,2026-11-12 09:30,AVGO,long,shrinking,361.53,343.98,387.85,344.7,4,submitted,1046002c-8fd6-46dd-9464-51f5d8811080
+v3,2026-11-12 09:30,SMH,long,shrinking,497.66,484.11,524.76,488.46,6,submitted,bd663545-c716-4fea-8939-7fff2f925ca8
+v3,2026-11-12 09:30,AVGO,long,shrinking,361.53,343.98,396.63,344.7,4,submitted,57a83c1a-1655-46ff-ae68-77b3a5f679ff
