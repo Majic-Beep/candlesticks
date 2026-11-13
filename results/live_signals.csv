@@ -231,3 +231,6 @@ v2,2026-11-13 11:30,COST,long,pin_bar,1107.14,1103.22,1113.02,1102.84,1,submitte
 v3,2026-11-13 11:30,AVGO,long,engulfing,345.53,337.31,361.97,338.8,10,submitted,bfedbbd6-3535-463f-bce3-ccb0d2c7ce57
 v2,2026-11-13 12:30,AVGO,long,pin_bar,345.53,343.64,348.36,344.31,1,skipped: position already open,
 v1,2026-11-13 12:30,AVGO,long,pin_bar,345.53,343.64,349.31,344.31,0,skipped: position already open,
+v2,2026-11-13 14:30,NFLX,short,engulfing,62.305,62.56,61.92,62.62,26,submitted,3bb477d6-9c6b-4ed6-9f4e-420fc57eda2d
+v1,2026-11-13 14:30,AVGO,short,engulfing,345.09,347.62,340.03,345.67,0,skipped: position already open,
+v1,2026-11-13 14:30,LLY,short,engulfing,1445.81,1450.13,1437.17,1447.92,0,skipped: position already open,
