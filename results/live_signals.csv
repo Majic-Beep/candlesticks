@@ -229,3 +229,5 @@ v2,2026-11-13 11:30,TLT,short,engulfing,79.465,79.65,79.19,79.51,54,skipped: pos
 v2,2026-11-13 11:30,AVGO,long,engulfing,345.53,337.31,357.86,338.8,10,submitted,6eaf7ee5-ed87-46cc-a22d-5a2707b5d0ef
 v2,2026-11-13 11:30,COST,long,pin_bar,1107.14,1103.22,1113.02,1102.84,1,submitted,d3e5aec6-0077-4dc7-8047-64ad8718551f
 v3,2026-11-13 11:30,AVGO,long,engulfing,345.53,337.31,361.97,338.8,10,submitted,bfedbbd6-3535-463f-bce3-ccb0d2c7ce57
+v2,2026-11-13 12:30,AVGO,long,pin_bar,345.53,343.64,348.36,344.31,1,skipped: position already open,
+v1,2026-11-13 12:30,AVGO,long,pin_bar,345.53,343.64,349.31,344.31,0,skipped: position already open,
