@@ -251,3 +251,9 @@ v2,2026-11-16 10:30,TLT,short,engulfing,79.385,79.77,78.81,79.51,53,skipped: pos
 v2,2026-11-16 10:30,AVGO,long,engulfing,336.4,327.48,349.78,327.7,9,submitted,aa489da2-a34f-4f8f-bf5d-96090620f01a
 v1,2026-11-16 10:30,TLT,short,engulfing,79.385,79.77,78.62,79.51,54,skipped: position already open,
 v1,2026-11-16 10:30,AVGO,long,engulfing,336.4,327.48,354.24,327.7,9,submitted,a8313a80-6e30-4ba8-889d-ca79961012c3
+v1,2026-11-16 11:30,XLV,long,pin_bar,189.385,188.8,190.55,188.93,22,submitted,bd92a5cd-ebac-4c05-8187-33a7ee890a0e
+v1,2026-11-16 11:30,GLD,long,engulfing,354.411,353.25,356.73,354.41,6,skipped: other variant holds the opposite side,
+v1,2026-11-16 11:30,NFLX,short,engulfing,61.355,61.69,60.68,61.64,36,submitted,eb3345eb-fd37-4c54-bc45-885263bea8c2
+v2,2026-11-16 11:30,XLV,long,pin_bar,189.385,188.8,190.26,188.93,22,submitted,c5a9e585-7967-4a59-b0b3-1ef695ab6527
+v2,2026-11-16 11:30,NFLX,short,engulfing,61.355,61.69,60.85,61.64,2,submitted,757b0478-2944-416a-a818-d63629689217
+v3,2026-11-16 11:30,XLV,long,pin_bar,189.385,188.8,190.55,188.93,21,submitted,5dcb4a85-0b17-406a-9e26-211882e96b67
