@@ -246,3 +246,8 @@ v1,2026-11-16 09:30,TLT,long,breakout,79.6801,79.3,80.44,79.5,54,skipped: positi
 v1,2026-11-16 09:30,LLY,long,breakout,1461.43,1440.16,1503.97,1444.21,2,submitted,5e63b268-fd40-4e46-b424-89f51a621536
 v2,2026-11-16 09:30,LLY,long,breakout,1461.43,1440.16,1493.34,1444.21,2,submitted,605be7ad-2dfd-4dcd-a17e-d46751de3845
 v3,2026-11-16 09:30,LLY,long,breakout,1461.43,1440.16,1503.97,1444.21,2,submitted,146835fd-4c4d-41df-9fc4-58902f290990
+v3,2026-11-16 10:30,AVGO,long,engulfing,336.4,327.48,354.24,327.7,9,submitted,a11d9f94-3387-4120-af19-6c24d5795250
+v2,2026-11-16 10:30,TLT,short,engulfing,79.385,79.77,78.81,79.51,53,skipped: position already open,
+v2,2026-11-16 10:30,AVGO,long,engulfing,336.4,327.48,349.78,327.7,9,submitted,aa489da2-a34f-4f8f-bf5d-96090620f01a
+v1,2026-11-16 10:30,TLT,short,engulfing,79.385,79.77,78.62,79.51,54,skipped: position already open,
+v1,2026-11-16 10:30,AVGO,long,engulfing,336.4,327.48,354.24,327.7,9,submitted,a8313a80-6e30-4ba8-889d-ca79961012c3
