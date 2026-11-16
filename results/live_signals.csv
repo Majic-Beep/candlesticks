@@ -258,3 +258,8 @@ v2,2026-11-16 11:30,XLV,long,pin_bar,189.385,188.8,190.26,188.93,22,submitted,c5
 v2,2026-11-16 11:30,NFLX,short,engulfing,61.355,61.69,60.85,61.64,2,submitted,757b0478-2944-416a-a818-d63629689217
 v3,2026-11-16 11:30,XLV,long,pin_bar,189.385,188.8,190.55,188.93,21,submitted,5dcb4a85-0b17-406a-9e26-211882e96b67
 v1,2026-11-16 12:30,XLV,short,three_bar_continuation,188.675,190.24,185.55,189.2,22,submitted,1cdffd6f-a93b-4e4b-b3ae-0821019575b0
+v3,2026-11-16 14:30,COST,long,engulfing,1111.22,1106.46,1120.74,1109.5,3,submitted,9c1e7371-0446-401d-9d2c-e1634fce38d2
+v2,2026-11-16 14:30,TLT,short,pin_bar,79.505,79.6,79.36,79.51,53,skipped: position already open,
+v2,2026-11-16 14:30,COST,long,engulfing,1111.22,1106.46,1118.36,1109.5,3,submitted,ffeb2928-f3cf-404b-8713-c4fd1169b932
+v1,2026-11-16 14:30,TLT,short,pin_bar,79.505,79.6,79.31,79.51,54,skipped: position already open,
+v1,2026-11-16 14:30,COST,long,engulfing,1111.22,1106.46,1120.74,1109.5,3,submitted,46d77268-6139-4f61-ad59-1103ebd9cb27
