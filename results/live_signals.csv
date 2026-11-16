@@ -263,3 +263,8 @@ v2,2026-11-16 14:30,TLT,short,pin_bar,79.505,79.6,79.36,79.51,53,skipped: positi
 v2,2026-11-16 14:30,COST,long,engulfing,1111.22,1106.46,1118.36,1109.5,3,submitted,ffeb2928-f3cf-404b-8713-c4fd1169b932
 v1,2026-11-16 14:30,TLT,short,pin_bar,79.505,79.6,79.31,79.51,54,skipped: position already open,
 v1,2026-11-16 14:30,COST,long,engulfing,1111.22,1106.46,1120.74,1109.5,3,submitted,46d77268-6139-4f61-ad59-1103ebd9cb27
+v1,2026-11-16 15:30,XLE,long,engulfing,63.71,63.48,64.17,63.655,29,submitted,f3160d05-612d-44c4-bfe6-e949eeb3d050
+v1,2026-11-16 15:30,JPM,long,engulfing,338.3,336.82,341.26,337,0,skipped: size < 1 share or budget used up,
+v2,2026-11-16 15:30,XLE,long,engulfing,63.71,63.48,64.06,63.655,60,submitted,57014349-da04-402e-898d-ba74bbc1455f
+v2,2026-11-16 15:30,XOM,long,engulfing,166.99,166.4,167.88,166.34,0,skipped: size < 1 share or budget used up,
+v3,2026-11-16 15:30,XLE,long,engulfing,63.71,63.48,64.17,63.655,65,submitted,e27b56fa-6c28-44eb-aa7f-8165284607ce
