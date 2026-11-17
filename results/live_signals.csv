@@ -268,3 +268,8 @@ v1,2026-11-16 15:30,JPM,long,engulfing,338.3,336.82,341.26,337,0,skipped: size <
 v2,2026-11-16 15:30,XLE,long,engulfing,63.71,63.48,64.06,63.655,60,submitted,57014349-da04-402e-898d-ba74bbc1455f
 v2,2026-11-16 15:30,XOM,long,engulfing,166.99,166.4,167.88,166.34,0,skipped: size < 1 share or budget used up,
 v3,2026-11-16 15:30,XLE,long,engulfing,63.71,63.48,64.17,63.655,65,submitted,e27b56fa-6c28-44eb-aa7f-8165284607ce
+v1,2026-11-17 09:30,XLE,short,pin_bar,64.035,64.59,62.92,64.535,67,submitted,9130693f-26a1-4507-9db7-f8fa2450bcdb
+v1,2026-11-17 09:30,GLD,long,three_bar_reversal,354.65,352.8,358.35,352.91,12,skipped: other variant holds the opposite side,
+v1,2026-11-17 09:30,LLY,long,shrinking,1431.19,1409.49,1474.59,1412.66,3,submitted,ebc1e17d-a42e-4965-a0e9-b3c02dfdc5c1
+v2,2026-11-17 09:30,LLY,long,shrinking,1431.19,1409.49,1463.74,1412.66,2,submitted,1d81a86d-4df8-44ac-8aab-7eb878c5f033
+v3,2026-11-17 09:30,LLY,long,shrinking,1431.19,1409.49,1474.59,1412.66,2,submitted,c2de581a-7d2d-417e-87c6-a7794c76b296
