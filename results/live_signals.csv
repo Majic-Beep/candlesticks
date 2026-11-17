@@ -279,3 +279,6 @@ v2,2026-11-17 10:30,JPM,short,engulfing,331.16,337.02,322.37,337,12,submitted,4d
 v1,2026-11-17 10:30,XLF,short,engulfing,57.195,58.04,55.51,58.02,15,submitted,35889162-c593-4dc2-8dc1-3d9631361974
 v1,2026-11-17 10:30,GLD,short,pin_bar,354.48,356.6,350.24,356.29,0,skipped: size < 1 share or budget used up,
 v1,2026-11-17 10:30,JPM,short,engulfing,331.16,337.02,319.44,337,0,skipped: size < 1 share or budget used up,
+v3,2026-11-17 12:30,AVGO,long,pin_bar,340.17,337.01,346.49,337.67,12,skipped: position already open,
+v2,2026-11-17 12:30,AVGO,long,pin_bar,340.17,337.01,344.91,337.67,9,skipped: position already open,
+v1,2026-11-17 12:30,AVGO,long,pin_bar,340.17,337.01,346.49,337.67,12,skipped: position already open,
