@@ -273,3 +273,9 @@ v1,2026-11-17 09:30,GLD,long,three_bar_reversal,354.65,352.8,358.35,352.91,12,sk
 v1,2026-11-17 09:30,LLY,long,shrinking,1431.19,1409.49,1474.59,1412.66,3,submitted,ebc1e17d-a42e-4965-a0e9-b3c02dfdc5c1
 v2,2026-11-17 09:30,LLY,long,shrinking,1431.19,1409.49,1463.74,1412.66,2,submitted,1d81a86d-4df8-44ac-8aab-7eb878c5f033
 v3,2026-11-17 09:30,LLY,long,shrinking,1431.19,1409.49,1474.59,1412.66,2,submitted,c2de581a-7d2d-417e-87c6-a7794c76b296
+v2,2026-11-17 10:30,XLF,short,engulfing,57.195,58.04,55.93,58.02,73,submitted,7ba1b798-02cf-46d9-9d71-c256dc395caf
+v2,2026-11-17 10:30,GLD,short,pin_bar,354.48,356.6,351.3,356.29,11,skipped: position already open,
+v2,2026-11-17 10:30,JPM,short,engulfing,331.16,337.02,322.37,337,12,submitted,4d85b0bf-935c-4dfb-b93c-99987723fdb5
+v1,2026-11-17 10:30,XLF,short,engulfing,57.195,58.04,55.51,58.02,15,submitted,35889162-c593-4dc2-8dc1-3d9631361974
+v1,2026-11-17 10:30,GLD,short,pin_bar,354.48,356.6,350.24,356.29,0,skipped: size < 1 share or budget used up,
+v1,2026-11-17 10:30,JPM,short,engulfing,331.16,337.02,319.44,337,0,skipped: size < 1 share or budget used up,
