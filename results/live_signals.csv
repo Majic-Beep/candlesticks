@@ -282,3 +282,4 @@ v1,2026-11-17 10:30,JPM,short,engulfing,331.16,337.02,319.44,337,0,skipped: size
 v3,2026-11-17 12:30,AVGO,long,pin_bar,340.17,337.01,346.49,337.67,12,skipped: position already open,
 v2,2026-11-17 12:30,AVGO,long,pin_bar,340.17,337.01,344.91,337.67,9,skipped: position already open,
 v1,2026-11-17 12:30,AVGO,long,pin_bar,340.17,337.01,346.49,337.67,12,skipped: position already open,
+v1,2026-11-17 13:30,XLE,short,three_bar_continuation,63.33,63.82,62.35,63.655,68,skipped: position already open,
