@@ -287,3 +287,5 @@ v1,2026-11-17 14:30,AVGO,long,pin_bar,337.79,335.03,343.31,335.74,12,skipped: po
 v1,2026-11-17 15:30,XLE,long,engulfing,63.36,63.04,64.0,63.265,68,skipped: position already open,
 v2,2026-11-17 15:30,XLE,long,engulfing,63.36,63.04,63.84,63.265,53,skipped: other variant holds the opposite side,
 v3,2026-11-17 15:30,XLE,long,engulfing,63.36,63.04,64.0,63.265,65,skipped: other variant holds the opposite side,
+v1,2026-11-18 09:30,JPM,short,pin_bar,327.27,330.22,321.37,328.9,13,submitted,5e88aa1f-e5b7-4f4b-9758-e5a30756ac71
+v2,2026-11-18 09:30,JPM,short,pin_bar,327.27,330.22,322.84,330.4,12,skipped: position already open,
