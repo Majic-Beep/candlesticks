@@ -297,3 +297,5 @@ v1,2026-11-18 13:30,LLY,short,engulfing,1385.08,1399.67,1355.9,1398.3,3,submitte
 v2,2026-11-18 13:30,AVGO,long,engulfing,357.03,349.28,368.65,348.21,10,submitted,8c16c01a-30df-491c-b9e0-cdbf86acb5c4
 v2,2026-11-18 13:30,LLY,short,engulfing,1385.08,1399.67,1363.19,1398.3,2,submitted,9e40a9b4-ca4f-4d04-9b87-2d8aeff6c3cf
 v3,2026-11-18 13:30,AVGO,long,engulfing,357.03,349.28,372.53,351.62,10,submitted,26c7db1a-3e19-481a-9310-805d9d507b22
+v2,2026-11-18 14:30,SMH,short,engulfing,456.22,460.55,449.73,456.435,0,skipped: size < 1 share or budget used up,
+v1,2026-11-18 14:30,SMH,short,engulfing,456.22,460.55,447.56,456.435,7,submitted,51dab1b9-80f9-4533-a4ba-1bfd13926a1f
