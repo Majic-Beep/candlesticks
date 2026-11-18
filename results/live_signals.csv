@@ -291,3 +291,4 @@ v1,2026-11-18 09:30,JPM,short,pin_bar,327.27,330.22,321.37,328.9,13,submitted,5e
 v2,2026-11-18 09:30,JPM,short,pin_bar,327.27,330.22,322.84,330.4,12,skipped: position already open,
 v1,2026-11-18 11:30,XLF,long,engulfing,56.735,56.37,57.47,56.505,76,skipped: position already open,
 v1,2026-11-18 11:30,XOM,long,pin_bar,162.12,160.79,164.78,161.82,26,submitted,81d3f07f-50b7-43a9-87f5-811b092d616b
+v1,2026-11-18 12:30,LLY,long,engulfing,1397.98,1383.95,1426.04,1391.78,3,submitted,7e616e92-4749-4837-b418-c0e3d4114591
