@@ -312,3 +312,6 @@ v1,2026-11-19 10:30,AVGO,long,pin_bar,360.69,352.47,377.13,352.4,10,skipped: pos
 v1,2026-11-19 11:30,SMH,short,three_bar_continuation,457.13,480.4,410.59,476.2499,3,submitted,5e538b3b-abd8-456d-91c1-04f856efdc8a
 v1,2026-11-19 11:30,AVGO,short,engulfing,354.64,362.36,339.2,356.85,11,submitted,f4fafabe-d06d-4d8d-99ba-36a1aa59b5b5
 v2,2026-11-19 11:30,SMH,short,three_bar_continuation,457.13,480.4,422.23,476.2499,3,submitted,d97e07da-fcd0-4f7b-a769-abb71264902f
+v1,2026-11-19 13:30,SMH,long,pin_bar,454.43,449.62,464.05,452.85,9,skipped: position already open,
+v1,2026-11-19 13:30,AVGO,long,pin_bar,349.6725,345.95,357.12,345.67,12,skipped: position already open,
+v2,2026-11-19 13:30,AVGO,long,pin_bar,349.6725,345.95,355.26,345.67,12,skipped: other variant holds the opposite side,
