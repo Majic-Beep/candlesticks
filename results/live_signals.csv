@@ -315,3 +315,5 @@ v2,2026-11-19 11:30,SMH,short,three_bar_continuation,457.13,480.4,422.23,476.249
 v1,2026-11-19 13:30,SMH,long,pin_bar,454.43,449.62,464.05,452.85,9,skipped: position already open,
 v1,2026-11-19 13:30,AVGO,long,pin_bar,349.6725,345.95,357.12,345.67,12,skipped: position already open,
 v2,2026-11-19 13:30,AVGO,long,pin_bar,349.6725,345.95,355.26,345.67,12,skipped: other variant holds the opposite side,
+v2,2026-11-19 14:30,XLF,short,engulfing,55.625,55.91,55.2,55.905,76,submitted,9bb007aa-eb0a-45f8-9c22-340b171d0e21
+v1,2026-11-19 14:30,XLF,short,engulfing,55.625,55.91,55.06,55.905,78,submitted,1f708ff4-ca0d-4fb0-a2fe-acb24e4faabb
