@@ -304,3 +304,8 @@ v2,2026-11-18 15:30,LLY,short,engulfing,1382.55,1390.03,1371.33,1391.78,0,skippe
 v1,2026-11-19 09:30,NFLX,short,engulfing,59.325,60.47,57.04,59.405,58,submitted,7c03fe57-7200-44e6-8b60-8c5397beb02e
 v2,2026-11-19 09:30,TLT,long,pin_bar,80.09,79.8,80.53,79.77,53,submitted,87ff6738-8c5b-422b-a626-72db1f20e528
 v2,2026-11-19 09:30,NFLX,short,engulfing,59.325,60.47,57.61,60.5,71,submitted,84458db5-0e06-4ca7-a08b-234514044bd4
+v3,2026-11-19 10:30,AVGO,long,pin_bar,360.69,352.47,377.13,352.4,10,skipped: position already open,
+v2,2026-11-19 10:30,AVGO,long,pin_bar,360.69,352.47,373.02,352.4,10,submitted,7008ca97-e181-419a-9fea-eae0499b9a30
+v1,2026-11-19 10:30,XLE,long,pin_bar,61.27,60.88,62.05,61.205,71,submitted,94532163-cbf1-477e-9242-9fe28ae69456
+v1,2026-11-19 10:30,TLT,short,pin_bar,80.08,80.33,79.58,80.28,51,skipped: other variant holds the opposite side,
+v1,2026-11-19 10:30,AVGO,long,pin_bar,360.69,352.47,377.13,352.4,10,skipped: position already open,
