@@ -330,3 +330,5 @@ v2,2026-11-20 09:30,TLT,long,three_bar_continuation,81.0901,80.2,82.43,80.28,53,
 v3,2026-11-20 09:30,TLT,long,three_bar_continuation,81.0901,80.2,82.87,80.28,51,submitted,dec04228-7a66-46ba-8b8d-79b921ca6db9
 v2,2026-11-20 10:30,XLF,short,engulfing,55.615,56.04,54.98,55.905,78,submitted,caef5a89-e9c5-4b7f-82bd-db7b2e528a0f
 v1,2026-11-20 10:30,XLF,short,engulfing,55.615,56.04,54.77,55.905,78,submitted,6e639f28-57bb-4f37-b92c-04df51492b26
+v2,2026-11-20 14:30,LLY,short,pin_bar,1349.785,1355.44,1341.3,1352.31,3,submitted,94a0eb02-47ba-4e68-9eef-88dd9d028fcf
+v1,2026-11-20 14:30,LLY,short,pin_bar,1349.785,1355.44,1338.48,1352.31,3,submitted,e9368757-8243-48af-9b14-c6c86b3c65ab
