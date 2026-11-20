@@ -332,3 +332,7 @@ v2,2026-11-20 10:30,XLF,short,engulfing,55.615,56.04,54.98,55.905,78,submitted,c
 v1,2026-11-20 10:30,XLF,short,engulfing,55.615,56.04,54.77,55.905,78,submitted,6e639f28-57bb-4f37-b92c-04df51492b26
 v2,2026-11-20 14:30,LLY,short,pin_bar,1349.785,1355.44,1341.3,1352.31,3,submitted,94a0eb02-47ba-4e68-9eef-88dd9d028fcf
 v1,2026-11-20 14:30,LLY,short,pin_bar,1349.785,1355.44,1338.48,1352.31,3,submitted,e9368757-8243-48af-9b14-c6c86b3c65ab
+v1,2026-11-20 15:30,XLF,short,three_bar_continuation,54.625,55.42,53.03,55.3,79,submitted,7ea9906a-8f2b-4178-908b-c5a45f6302d3
+v1,2026-11-20 15:30,COST,short,engulfing,1103.96,1110.51,1090.86,1109.5,3,submitted,f3a49a4b-111c-4898-afcd-338b988ed984
+v2,2026-11-20 15:30,XLF,short,three_bar_continuation,54.625,55.42,53.43,55.3,79,submitted,35f3d99c-76ea-4855-b6ff-e9cf6cad4d84
+v2,2026-11-20 15:30,COST,short,engulfing,1103.96,1110.51,1094.14,1109.5,3,submitted,5b49b894-d834-451c-a82d-a461910a9ffb
