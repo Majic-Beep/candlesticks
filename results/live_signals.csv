@@ -328,3 +328,5 @@ v1,2026-11-20 09:30,XOM,long,breakout,160.47,158.54,164.33,159.11,19,submitted,a
 v2,2026-11-20 09:30,SMH,short,three_bar_continuation,423.44,455.7,375.05,456.435,2,submitted,834964ef-8096-49c0-836c-01a3814ceda7
 v2,2026-11-20 09:30,TLT,long,three_bar_continuation,81.0901,80.2,82.43,80.28,53,submitted,360189a1-7f9f-4230-86d6-399cd8a49701
 v3,2026-11-20 09:30,TLT,long,three_bar_continuation,81.0901,80.2,82.87,80.28,51,submitted,dec04228-7a66-46ba-8b8d-79b921ca6db9
+v2,2026-11-20 10:30,XLF,short,engulfing,55.615,56.04,54.98,55.905,78,submitted,caef5a89-e9c5-4b7f-82bd-db7b2e528a0f
+v1,2026-11-20 10:30,XLF,short,engulfing,55.615,56.04,54.77,55.905,78,submitted,6e639f28-57bb-4f37-b92c-04df51492b26
