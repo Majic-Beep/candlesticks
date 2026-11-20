@@ -321,3 +321,10 @@ v1,2026-11-19 15:30,XLF,short,pin_bar,55.59,55.85,55.07,55.805,64,skipped: posit
 v1,2026-11-19 15:30,AVGO,short,pin_bar,346.58,349.58,340.58,348.21,10,skipped: position already open,
 v2,2026-11-19 15:30,XLF,short,pin_bar,55.59,55.85,55.2,55.805,46,skipped: position already open,
 v2,2026-11-19 15:30,AVGO,short,pin_bar,346.58,349.58,342.08,348.21,7,submitted,bc69ab23-75eb-428a-9152-fd681e1c105c
+v1,2026-11-20 09:30,XLE,long,engulfing,61.22,60.46,62.74,60.73,71,submitted,7c789231-f72e-412b-a64b-9b4ff1449eaa
+v1,2026-11-20 09:30,SMH,short,three_bar_continuation,423.44,455.7,358.92,452.85,2,skipped: position already open,
+v1,2026-11-20 09:30,TLT,long,three_bar_continuation,81.0901,80.2,82.87,80.28,53,submitted,87ae0462-8750-405f-8870-8b986d571fe9
+v1,2026-11-20 09:30,XOM,long,breakout,160.47,158.54,164.33,159.11,19,submitted,a3c5d3fd-1284-4d47-ad3a-6d7dcc280df6
+v2,2026-11-20 09:30,SMH,short,three_bar_continuation,423.44,455.7,375.05,456.435,2,submitted,834964ef-8096-49c0-836c-01a3814ceda7
+v2,2026-11-20 09:30,TLT,long,three_bar_continuation,81.0901,80.2,82.43,80.28,53,submitted,360189a1-7f9f-4230-86d6-399cd8a49701
+v3,2026-11-20 09:30,TLT,long,three_bar_continuation,81.0901,80.2,82.87,80.28,51,submitted,dec04228-7a66-46ba-8b8d-79b921ca6db9
