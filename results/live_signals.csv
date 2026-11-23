@@ -339,3 +339,7 @@ v2,2026-11-20 15:30,COST,short,engulfing,1103.96,1110.51,1094.14,1109.5,3,submit
 v1,2026-11-23 09:30,XLF,long,pin_bar,55.775,55.24,56.84,55.3,80,submitted,f7e526ae-20f0-425f-999c-370c203a8797
 v1,2026-11-23 09:30,XLV,long,engulfing,179.45,176.65,185.05,176.96,25,submitted,f074d8b1-29da-4d8d-be35-05e4451db6ed
 v1,2026-11-23 09:30,LLY,long,engulfing,1371.87,1341.16,1433.29,1341.46,2,submitted,c646b958-2a39-42bc-988a-ffea563bddec
+v1,2026-11-23 11:30,XLF,short,engulfing,55.72,55.96,55.24,55.905,80,skipped: position already open,
+v1,2026-11-23 11:30,XLV,short,engulfing,179.165,180.13,177.23,179.72,25,skipped: position already open,
+v2,2026-11-23 11:30,XLF,short,engulfing,55.72,55.96,55.36,55.905,77,skipped: other variant holds the opposite side,
+v2,2026-11-23 11:30,XLV,short,engulfing,179.165,180.13,177.72,179.72,24,skipped: other variant holds the opposite side,
