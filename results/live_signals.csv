@@ -350,3 +350,5 @@ v2,2026-11-23 13:30,XLE,short,engulfing,60.175,60.42,59.81,60.4301,71,submitted,
 v2,2026-11-23 14:30,SMH,long,engulfing,460.39,454.33,469.48,456.435,9,submitted,c056b03e-b22d-4549-8580-bddd1d8629c0
 v1,2026-11-23 14:30,XLF,long,engulfing,55.825,55.61,56.26,55.745,0,skipped: position already open,
 v1,2026-11-23 14:30,SMH,long,engulfing,460.39,454.33,472.51,456.435,0,skipped: size < 1 share or budget used up,
+v1,2026-11-23 15:30,JPM,short,breakout,316.87,319.5,311.61,317.43,0,skipped: size < 1 share or budget used up,
+v2,2026-11-23 15:30,JPM,short,breakout,316.87,319.5,312.93,317.43,13,submitted,50893e81-8ef6-40cf-b891-81e78d3950d9
