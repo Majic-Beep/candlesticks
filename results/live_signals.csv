@@ -352,3 +352,13 @@ v1,2026-11-23 14:30,XLF,long,engulfing,55.825,55.61,56.26,55.745,0,skipped: posi
 v1,2026-11-23 14:30,SMH,long,engulfing,460.39,454.33,472.51,456.435,0,skipped: size < 1 share or budget used up,
 v1,2026-11-23 15:30,JPM,short,breakout,316.87,319.5,311.61,317.43,0,skipped: size < 1 share or budget used up,
 v2,2026-11-23 15:30,JPM,short,breakout,316.87,319.5,312.93,317.43,13,submitted,50893e81-8ef6-40cf-b891-81e78d3950d9
+v1,2026-11-24 09:30,XLF,long,engulfing,55.925,55.29,57.19,55.3,11,skipped: position already open,
+v1,2026-11-24 09:30,SMH,short,breakout,425.655,462.88,351.2,456.435,1,submitted,a635d73e-2cd7-4712-a17f-e8d6c5e45ac2
+v1,2026-11-24 09:30,NFLX,long,engulfing,59.015,57.53,61.98,58.61,3,submitted,6ce5f2f8-c924-4640-bc82-56a3599d7516
+v1,2026-11-24 09:30,COST,long,breakout,1090.55,1065.85,1139.95,1067.51,0,skipped: size < 1 share or budget used up,
+v1,2026-11-24 09:30,LLY,long,breakout,1406.68,1357.42,1505.2,1358.56,0,skipped: position already open,
+v2,2026-11-24 09:30,SMH,short,breakout,425.655,462.88,369.82,456.435,2,submitted,20c2155b-49bd-45b6-ac39-c9df04717f36
+v2,2026-11-24 09:30,COST,long,breakout,1090.55,1065.85,1127.6,1067.51,3,submitted,9dde73a1-2c26-44c2-a034-97bbe51f8561
+v2,2026-11-24 09:30,LLY,long,breakout,1406.68,1357.42,1480.57,1358.56,1,submitted,58f6b8d8-62d2-4b14-9728-8efb1a04e013
+v3,2026-11-24 09:30,COST,long,breakout,1090.55,1065.85,1139.95,1067.51,3,submitted,596d29f3-d279-4afa-89f9-f66df958bb84
+v3,2026-11-24 09:30,LLY,long,breakout,1406.68,1357.42,1505.2,1358.56,1,submitted,8940d63f-1edb-415d-864d-3fa2f9e583b7
