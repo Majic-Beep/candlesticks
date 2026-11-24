@@ -372,3 +372,4 @@ v2,2026-11-24 11:30,LLY,long,engulfing,1408.5,1399.54,1421.94,1399.89,1,skipped:
 v3,2026-11-24 11:30,LLY,long,engulfing,1408.5,1399.54,1426.42,1399.89,2,skipped: position already open,
 v1,2026-11-24 12:30,XLE,long,pin_bar,60.545,60.3,61.04,60.4301,72,submitted,335a5a80-a512-42f6-be76-ae9cbcd795a6
 v1,2026-11-24 12:30,COST,short,engulfing,1090.075,1094.97,1080.29,1094.75,4,skipped: other variant holds the opposite side,
+v1,2026-11-24 13:30,TLT,short,pin_bar,81.6574,81.76,81.45,81.71,53,skipped: position already open,
