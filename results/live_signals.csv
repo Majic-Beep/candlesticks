@@ -378,3 +378,12 @@ v2,2026-11-24 14:30,LLY,long,engulfing,1413.2,1407.12,1422.32,1406.67,1,skipped:
 v1,2026-11-24 14:30,LLY,long,engulfing,1413.2,1407.12,1425.36,1406.67,2,submitted,6a4ced81-3406-4165-bc0e-3a34764e10f5
 v1,2026-11-24 15:30,XLF,long,engulfing,56.13,55.89,56.61,55.905,0,skipped: position already open,
 v1,2026-11-24 15:30,TLT,short,breakout,81.485,81.76,80.93,81.71,0,skipped: position already open,
+v1,2026-11-25 09:30,XLE,long,engulfing,60.54,59.61,62.4,60.4301,72,submitted,7289e09f-ecfb-4b82-a56d-2a9b8b4bd177
+v1,2026-11-25 09:30,XLV,short,breakout,182.44,185.17,176.98,184.85,4,submitted,514bd8c8-d31f-4129-ac94-8c2f083fc21d
+v1,2026-11-25 09:30,AVGO,short,three_bar_continuation,282.6,305.0,237.8,305.22,0,skipped: size < 1 share or budget used up,
+v1,2026-11-25 09:30,NFLX,short,three_bar_continuation,57.505,59.27,53.98,58.61,0,skipped: size < 1 share or budget used up,
+v1,2026-11-25 09:30,LLY,short,breakout,1385.4875,1415.64,1325.18,1412.66,0,skipped: position already open,
+v1,2026-11-25 09:30,XOM,long,engulfing,158.87,156.78,163.05,157.15,0,skipped: size < 1 share or budget used up,
+v2,2026-11-25 09:30,AVGO,short,three_bar_continuation,282.6,305.0,249.0,305.22,3,submitted,55b9e243-230a-4ce7-88fb-fb8245fbfa71
+v2,2026-11-25 09:30,NFLX,short,three_bar_continuation,57.505,59.27,54.86,59.35,47,submitted,47d9ca3d-1bd2-4544-b5d5-8054406be365
+v2,2026-11-25 09:30,LLY,short,breakout,1385.4875,1415.64,1340.26,1412.66,2,skipped: other variant holds the opposite side,
