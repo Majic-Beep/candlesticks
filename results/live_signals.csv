@@ -388,3 +388,7 @@ v2,2026-11-25 09:30,AVGO,short,three_bar_continuation,282.6,305.0,249.0,305.22,3
 v2,2026-11-25 09:30,NFLX,short,three_bar_continuation,57.505,59.27,54.86,59.35,47,submitted,47d9ca3d-1bd2-4544-b5d5-8054406be365
 v2,2026-11-25 09:30,LLY,short,breakout,1385.4875,1415.64,1340.26,1412.66,2,skipped: other variant holds the opposite side,
 v1,2026-11-25 10:30,XLF,long,engulfing,55.68,55.31,56.42,55.315,0,skipped: position already open,
+v1,2026-11-25 11:30,XLE,long,engulfing,60.79,60.05,62.27,60.4301,0,skipped: position already open,
+v1,2026-11-25 11:30,SMH,long,engulfing,404.06,393.35,425.48,396.85,0,skipped: position already open,
+v1,2026-11-25 11:30,NFLX,long,engulfing,58.56,56.99,61.7,57.57,0,skipped: other variant holds the opposite side,
+v1,2026-11-25 11:30,LLY,long,engulfing,1386.64,1370.07,1419.78,1372.05,0,skipped: position already open,
