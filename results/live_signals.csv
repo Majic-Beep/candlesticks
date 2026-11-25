@@ -392,3 +392,6 @@ v1,2026-11-25 11:30,XLE,long,engulfing,60.79,60.05,62.27,60.4301,0,skipped: posi
 v1,2026-11-25 11:30,SMH,long,engulfing,404.06,393.35,425.48,396.85,0,skipped: position already open,
 v1,2026-11-25 11:30,NFLX,long,engulfing,58.56,56.99,61.7,57.57,0,skipped: other variant holds the opposite side,
 v1,2026-11-25 11:30,LLY,long,engulfing,1386.64,1370.07,1419.78,1372.05,0,skipped: position already open,
+v3,2026-11-25 12:30,TLT,long,pin_bar,82.515,82.36,82.83,82.415,50,skipped: position already open,
+v2,2026-11-25 12:30,TLT,long,pin_bar,82.515,82.36,82.75,82.415,50,submitted,5f3935cc-5c43-402d-88aa-b8a2d6873cab
+v1,2026-11-25 12:30,TLT,long,pin_bar,82.515,82.36,82.83,82.415,0,skipped: position already open,
